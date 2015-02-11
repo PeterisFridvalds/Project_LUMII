@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Tezaurs{% endblock %}
+{% block title %}Tezaurs - {{ input_word }}{% endblock %}
 {% block body_block %}
 	<h2>Skaidrojošā vērtdīca</h2>
 	
@@ -10,4 +10,7 @@
 		<input id="input_word" type="text" name="input_word" value="">
 		<input type="submit" name="submit" value="Meklēt" />
 	</form>
+	
+	{{ input_word }}
+	<p>vajadzētu būt skaidrojumiem un citai izvadei</p>
 {% endblock %}
