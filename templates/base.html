@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Tezaurs{% endblock %}</title>
+		<meta charset="utf-8">
+    </head>
+	
+	
+    <body>
+		<div class="header">
+			<h1> Esi sveicināts! </h1>
+		</div>
+		<div class="menu">
+			<table>
+				<tr>
+					<td><a href="/website/"> Tezaurs </a></td>
+				</tr>
+			</table>
+		</div>
+		
+		
+		<div class="content">
+			{% block body_block %}{% endblock %}
+		</div>
+		
+		
+		<div class="footer">
+            <p>Tezaurs &copy;</p>
+        </div>
+    </body>
+</html>
