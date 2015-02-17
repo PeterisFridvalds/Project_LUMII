@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}Tezaurs - {{ input_word }}{% endblock %}
+<!--Put input word as a part of title of page-->
+{% block title %}Tezaurs - {{ content }}{% endblock %}
 {% block body_block %}
 	<h2>Skaidrojošā vērtdīca</h2>
 	
+	<!--Input form-->
 	<form id="input_word" method="post" action="/website/show/">
 		{% csrf_token %}
 		<label for="input_word">Meklēt:</label>
-		<input id="input_word" type="text" name="input_word" value="">
+		<input id="input_word" type="text" name="input_word" value="{{ content }}">   <!--Value = word from previous input-->
 		<input type="submit" name="submit" value="Meklēt" />
 	</form>
 	
-	{{ input_word }}
-	<p>vajadzētu būt skaidrojumiem un citai izvadei</p>
+	<!--word from input-->
+	<p> {{ content }} </p>
 {% endblock %}
