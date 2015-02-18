@@ -14,5 +14,23 @@
 	</form>
 	
 	<!--word from input-->
-	<p> {{ content }} </p>
+	{% for i in data %}
+		{% if i.Header.Lemma == content %}
+			<p>{{ i.Header.Lemma }}</p>
+			{% if i.Header.Gram.Paradigm %}
+				<p>Paradigma: {{ i.Header.Gram.Paradigm }}</p>
+			{% endif %}
+			{% if i.Header.Gram.Flags %}
+				{% for j in i.Header.Gram.Flags %}
+					<p>{{ j }}</p>
+				{% endfor %}
+			{% endif %}
+			{% if i.Senses %}
+				{% for j in i.Senses %}
+					<p>{{ j.SenseID }}.nozīme: {{ j.Gloss}} </p>
+				{% endfor %}
+			{% endif %}
+			<p>{{ i }}</p>
+		{% endif %}
+	{% endfor %}
 {% endblock %}
