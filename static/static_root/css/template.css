@@ -1,8 +1,13 @@
+#logo
+{
+	height: 100px;
+	width: auto;
+}
 .input_form
 {
-	background-color: blue;
+	background-color: RGB(240,250,255);
 }
-#input_word
+#input_word_box
 {
 	background-color: RGB(255,255,200);
 }
