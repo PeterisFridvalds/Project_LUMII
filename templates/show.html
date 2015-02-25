@@ -5,28 +5,35 @@
 {% block body_block %}
 	
 	<!--word from input-->
-	
-	{% if data == None %}
-		<p>Dati nav pieejami</p>
-	{% endif %}
-	
-	
-		{% with i=data|first %}
-			<p>{{ i.Header.Lemma }}</p>
-			{% if i.Header.Gram.Paradigm %}
-				<p>Paradigma: {{ i.Header.Gram.Paradigm }}</p>
-			{% endif %}
-			{% if i.Header.Gram.Flags %}
-				{% for j in i.Header.Gram.Flags %}
-					<p>{{ j }}</p>
+	<table>
+		<tr>
+			<td class="list_of_elem">
+				<ul>
+				{% for i in data %}
+					<li>{{ i.Header.Lemma }}</li>
 				{% endfor %}
-			{% endif %}
-			{% if i.Senses %}
-				{% for j in i.Senses %}
-					<p>{{ j.SenseID }}.nozīme: {{ j.Gloss}} </p>
-				{% endfor %}
-			{% endif %}
-			<p>{{ i }}</p>
-		{% endwith %}
-		{{ data }}
+				</ul>
+			</td>
+			<td>
+				{% with i=data|first %}
+					<p>{{ i.Header.Lemma }}</p>
+					{% if i.Header.Gram.Paradigm %}
+						<p>Paradigma: {{ i.Header.Gram.Paradigm }}</p>
+					{% endif %}
+					{% if i.Header.Gram.Flags %}
+						{% for j in i.Header.Gram.Flags %}
+							<p>{{ j }}</p>
+						{% endfor %}
+					{% endif %}
+					{% if i.Senses %}
+						{% for j in i.Senses %}
+							<p>{{ j.SenseID }}.nozīme: {{ j.Gloss}} </p>
+						{% endfor %}
+					{% endif %}
+					<p>{{ i }}</p>
+				{% endwith %}
+				{{ data }}
+			</td>
+		</tr>
+	</table>
 {% endblock %}
