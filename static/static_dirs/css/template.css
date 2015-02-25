@@ -13,7 +13,8 @@
 	background-color: RGB(240,250,255);
 	text-align: center;
 	vertical-align: center;
-	padding: 10px;
+	padding: 25px;
+	padding-top: 5px;
 }
 #input_word_box
 {
@@ -28,5 +29,9 @@
 .list_of_elem ul
 {
 	list-style-type: none;
-	padding-top: 25px;
+	padding-top: 50px;
+}
+#alternative_word
+{
+	min-width: 75px;
 }

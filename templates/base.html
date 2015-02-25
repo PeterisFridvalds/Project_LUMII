@@ -27,15 +27,14 @@
 			<table>
 				<tr>
 					<td>
-				<h2>Skaidrojošā vārtdīca</h2>
-				<!-- Input form -->
-				<form id="input_word" method="post" action="/website/show/">
-					{% csrf_token %}
-					
-					<!-- Value = word from previous input, if there has bin input word -->
-					<input id="input_word_box" type="text" name="input_word" value="{{ content }}">
-					<input type="submit" name="submit" value="Meklēt" />
-				</form>
+						<h2>Skaidrojošā vārtdīca</h2>
+						<!-- Input form -->
+						<form id="input_word" method="post" action="/website/show/">
+							{% csrf_token %}
+							<!-- Value = word from previous input, if there has bin input word -->
+							<input id="input_word_box" type="text" name="input_word" value="{{ content }}">
+							<input type="submit" name="submit" value="Meklēt" />
+						</form>
 					</td>
 				</tr>
 			</table>

@@ -32,8 +32,8 @@ def show(request):
         # Calls analizer function
         # output_data = analizer.analizer(data)
 
-        # Put input_word in to content
-        context_dict = {'content':request.POST['input_word'], 'data':data}
+        # Function returns word and data for outputing on screen
+        context_dict = search_word.return_centext_dict(data, request.POST['input_word'])
 
     # Return a rendered response to send to the client.
     return render_to_response('show.html', context_dict, context)
