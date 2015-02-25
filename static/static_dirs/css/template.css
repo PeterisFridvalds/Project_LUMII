@@ -1,7 +1,11 @@
+
 #logo
 {
 	height: 100px;
 	width: auto;
+	position: relative;
+	float: right;
+	padding-right: 10px;
 }
 .input_form
 {
@@ -10,4 +14,5 @@
 #input_word_box
 {
 	background-color: RGB(255,255,200);
+	text-align: center;
 }

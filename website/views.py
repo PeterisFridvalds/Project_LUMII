@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response
 from django.shortcuts import render
 from django.http import HttpResponse
 from website import search_word
+from website import analizer
 import json
 
 def index(request):
@@ -24,8 +25,13 @@ def show(request):
             # transfer json elements to python elements
             document = json.load(f)
 
+        # data get result from search function
+        # Search function looks for input word in document(variable, wich contains jason converted to python)
         data = search_word.search_word(document, request.POST['input_word'])
-            
+
+        # Calls analizer function
+        # output_data = analizer.analizer(data)
+
         # Put input_word in to content
         context_dict = {'content':request.POST['input_word'], 'data':data}
 

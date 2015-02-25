@@ -5,22 +5,28 @@
 {% block body_block %}
 	
 	<!--word from input-->
-	{% if data = "no data" %}
-		<p>Dati nav pieejami<p>
+	
+	{% if data == None %}
+		<p>Dati nav pieejami</p>
 	{% endif %}
-			<p>{{ data.Header.Lemma }}</p>
-			{% if data.Header.Gram.Paradigm %}
-				<p>Paradigma: {{ data.Header.Gram.Paradigm }}</p>
+	
+	
+		{% with i=data|first %}
+			<p>{{ i.Header.Lemma }}</p>
+			{% if i.Header.Gram.Paradigm %}
+				<p>Paradigma: {{ i.Header.Gram.Paradigm }}</p>
 			{% endif %}
-			{% if data.Header.Gram.Flags %}
-				{% for j in data.Header.Gram.Flags %}
+			{% if i.Header.Gram.Flags %}
+				{% for j in i.Header.Gram.Flags %}
 					<p>{{ j }}</p>
 				{% endfor %}
 			{% endif %}
-			{% if data.Senses %}
-				{% for j in data.Senses %}
+			{% if i.Senses %}
+				{% for j in i.Senses %}
 					<p>{{ j.SenseID }}.nozīme: {{ j.Gloss}} </p>
 				{% endfor %}
 			{% endif %}
-			<p>{{ data }}</p>
+			<p>{{ i }}</p>
+		{% endwith %}
+		{{ data }}
 {% endblock %}
