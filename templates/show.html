@@ -6,31 +6,32 @@
 	<h2>Skaidrojošā vārtdīca</h2>
 	
 	<!--Input form-->
-	<form id="input_word" method="post" action="/website/show/">
-		{% csrf_token %}
-		<label for="input_word">Meklēt:</label>
-		<input id="input_word" type="text" name="input_word" value="{{ content }}">   <!--Value = word from previous input-->
-		<input type="submit" name="submit" value="Meklēt" />
-	</form>
+	<div class="input_form">
+		<form id="input_word" method="post" action="/website/show/">
+			{% csrf_token %}
+			<label for="input_word">Meklēt:</label>
+			<input id="input_word" type="text" name="input_word" value="{{ content }}">   <!--Value = word from previous input-->
+			<input type="submit" name="submit" value="Meklēt" />
+		</form>
+	</div>
 	
 	<!--word from input-->
-	{% for i in data %}
-		{% if i.Header.Lemma == content %}
-			<p>{{ i.Header.Lemma }}</p>
-			{% if i.Header.Gram.Paradigm %}
-				<p>Paradigma: {{ i.Header.Gram.Paradigm }}</p>
+	{% if data = "no data" %}
+		<p>Dati nav pieejami<p>
+	{% endif %}
+			<p>{{ data.Header.Lemma }}</p>
+			{% if data.Header.Gram.Paradigm %}
+				<p>Paradigma: {{ data.Header.Gram.Paradigm }}</p>
 			{% endif %}
-			{% if i.Header.Gram.Flags %}
-				{% for j in i.Header.Gram.Flags %}
+			{% if data.Header.Gram.Flags %}
+				{% for j in data.Header.Gram.Flags %}
 					<p>{{ j }}</p>
 				{% endfor %}
 			{% endif %}
-			{% if i.Senses %}
-				{% for j in i.Senses %}
+			{% if data.Senses %}
+				{% for j in data.Senses %}
 					<p>{{ j.SenseID }}.nozīme: {{ j.Gloss}} </p>
 				{% endfor %}
 			{% endif %}
-			<p>{{ i }}</p>
-		{% endif %}
-	{% endfor %}
+			<p>{{ data }}</p>
 {% endblock %}
