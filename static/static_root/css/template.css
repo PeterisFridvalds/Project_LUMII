@@ -10,11 +10,12 @@
 {
 	margin-left:auto;
 	margin-right: auto;
-	background-color: RGB(240,250,255);
+	background-color: RGB(240,240,255);
 	text-align: center;
 	vertical-align: center;
 	padding: 25px;
 	padding-top: 5px;
+	border: solid, 1px, RGB(200,200,240)
 }
 #input_word_box
 {
@@ -24,7 +25,7 @@
 .list_of_elem
 {
 	vertical-align: top;
-	padding-right: 25px;
+	padding-right: 50px;
 }
 .list_of_elem ul
 {
@@ -34,4 +35,20 @@
 #alternative_word
 {
 	min-width: 75px;
+}
+.inside_box
+{
+	padding-left: 25px;
+}
+.senses
+{
+	padding-left: 10px;
+}
+.grammer
+{
+	padding-left: 10px;
+}
+.phrases
+{
+	padding-left: 10px;
 }

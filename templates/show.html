@@ -8,47 +8,33 @@
 	{% if data == "No such word" %}
 		<h3>Vārds netika atrasts</h3>
 	{% else %} 
-	<table>
-		<tr>
-			<td class="list_of_elem">
-				<ul>
-				{% for i in data %}
-					<li>
-						<form id="input_word" method="post" action="/website/show/">
-							{% csrf_token %}
-							<!-- Hidden form field for precise word(case sensitive) -->
-							<input type="hidden" name="input_word" value="{{ i.Header.Lemma }}">
-							<!-- Renders the same page for alternative word -->
-							<input id="alternative_word" type="submit" name="submit" value="{{ i.Header.Lemma }}" />
-						</form>
-					</li>
-				{% endfor %}
-				</ul>
-			</td>
-			<td>
-				{% for i in data %}
-					<!-- Find right word(case sensitive) -->
-					{% if i.Header.Lemma == content %}
-						<p>{{ i.Header.Lemma }}</p>
-						{% if i.Header.Gram.Paradigm %}
-							<p>Paradigma: {{ i.Header.Gram.Paradigm }}</p>
+		<table>
+			<tr>
+				<td class="list_of_elem">
+					<ul>
+					{% for i in data %}
+						<li>
+							<form id="input_word" method="post" action="/website/show/">
+								{% csrf_token %}
+								<!-- Hidden form field for precise word(case sensitive) -->
+								<input type="hidden" name="input_word" value="{{ i.Header.Lemma }}">
+								<!-- Renders the same page for alternative word -->
+								<input id="alternative_word" type="submit" name="submit" value="{{ i.Header.Lemma }}" />
+							</form>
+						</li>
+					{% endfor %}
+					</ul>
+				</td>
+				<td>
+					{% for i in data %}
+						<!-- Find right word(case sensitive) -->
+						{% if i.Header.Lemma == content %}
+							{{ output_data|safe }}
 						{% endif %}
-						{% if i.Header.Gram.Flags %}
-							{% for j in i.Header.Gram.Flags %}
-								<p>{{ j }}</p>
-							{% endfor %}
-						{% endif %}
-						{% if i.Senses %}
-							{% for j in i.Senses %}
-								<p>{{ j.SenseID }}.nozīme: {{ j.Gloss}} </p>
-							{% endfor %}
-						{% endif %}
-						<p>{{ i }}</p>
-					{% endif %}
-				{% endfor %}
-			</td>
-		</tr>
-	</table>
+					{% endfor %}
+				</td>
+			</tr>
+		</table>
 	{% endif %}
 	
 {% endblock %}
