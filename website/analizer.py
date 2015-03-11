@@ -6,8 +6,8 @@ from website import senses
 def analizer(input_data):
     output = """<h1>""" + input_data['Header']['Lemma'] + """</h1>"""
     try:
-        if i['Header']['Gram']:
-            output = output + grammer.grammer(i['Header']['Gram'])
+        if input_data['Header']['Gram']:
+            output = output + grammer.grammer(input_data['Header']['Gram'])
     except Exception as inst:
           pass
     try:
@@ -21,8 +21,18 @@ def analizer(input_data):
     except Exception as inst:
         pass
     try:
+        for p in input_data['Derivatives']:
+            output = output + analizer(p)
+    except Exception as inst:
+        pass
+    try:
         for p in input_data['Phrases']['Phrase']:
             output = output + senses.phrase(p)
+    except Exception as inst:
+        pass
+    try:
+        for d in  input_data['Derivatives']:
+            output = output + analizer(d)
     except Exception as inst:
         pass
     try:

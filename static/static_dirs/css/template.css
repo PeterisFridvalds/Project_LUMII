@@ -40,6 +40,14 @@
 {
 	padding-left: 25px;
 }
+.double_inside_box
+{
+	padding-left: 50px;
+}
+#lemma
+{
+	font-weight: bold;
+}
 .senses
 {
 	padding-left: 25px;
