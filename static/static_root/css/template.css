@@ -48,6 +48,22 @@
 {
 	font-weight: bold;
 }
+.derivatives h1
+{
+	font-size: 20px;
+}
+#top_of_list
+{
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+#list_of
+{
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
 .senses
 {
 	padding-left: 25px;

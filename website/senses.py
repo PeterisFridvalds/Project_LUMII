@@ -10,19 +10,16 @@ def sense(input_data):
             output = output + """<div class="inside_box">"""
     except Exception as inst:
         pass
-        
-    try:
-        if input_data['Gram']:
-            output = output + grammer.grammer(input_data['Gram'])
-    except Exception as inst:
-        pass
-        
     try:
         if input_data['Gloss']:
             output = output + """<p>Skaidrojums: """ + input_data['Gloss'] + """</p>"""
     except Exception as inst:
         pass
-        
+    try:
+        if input_data['Gram']:
+            output = output + grammer.grammer(input_data['Gram'])
+    except Exception as inst:
+        pass  
     try:
         if input_data['Examples']:
             output = output + """<p>Piemēri:</p>"""
@@ -30,15 +27,12 @@ def sense(input_data):
             output = output + phrase(e)
     except Exception as inst:
         pass
-    
     output = output + """<div class="inside_box">"""
-            
     try:
         if input_data['Senses']:
             output = output + sense(input_data['Senses'])
     except Exception as inst:
         pass
-    
     output = output + """</div>"""
     try:
         if input_data['SenseID']:
@@ -56,21 +50,17 @@ def phrase(input_data):
             output = output + """<p>""" + input_data['Phrase']['Text'] + """:</p>"""
     except Exception as inst:
         pass
-
     try:
         if input_data['Phrase']['Gram']:
             output = output + grammer.grammer(input_data['Phrase']['Gram'])
     except Exception as inst:
         pass
-    
     try:
         
         for s in input_data['Phrase']['Senses']:
             output = output + sense(s)
     except Exception as inst:
         pass
-
-    
     output = output + """</div>"""
     return output
 

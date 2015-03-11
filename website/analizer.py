@@ -21,18 +21,15 @@ def analizer(input_data):
     except Exception as inst:
         pass
     try:
-        for p in input_data['Derivatives']:
-            output = output + analizer(p)
-    except Exception as inst:
-        pass
-    try:
         for p in input_data['Phrases']['Phrase']:
             output = output + senses.phrase(p)
     except Exception as inst:
         pass
     try:
+        output = output + """<div class="derivatives">"""
         for d in  input_data['Derivatives']:
             output = output + analizer(d)
+        output = output + """</div>"""
     except Exception as inst:
         pass
     try:
