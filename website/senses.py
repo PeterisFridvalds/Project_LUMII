@@ -3,43 +3,47 @@ from website import grammer
 
 # Function for outputing senses
 def sense(input_data):
-    output = """<div class="senses">"""
+    output = ""
     try:
         if input_data['SenseID']:
-            output = output + """<p>""" + input_data['SenseID'] + ". nozīme" + """</p>"""
-            output = output + """<div class="inside_box">"""
+            output = output + """<p id="top_of_list"><b1>""" + input_data['SenseID'] + ". nozīme — " + """</b1>"""
     except Exception as inst:
         pass
     try:
         if input_data['Gloss']:
-            output = output + """<p>Skaidrojums: """ + input_data['Gloss'] + """</p>"""
+            output = output + input_data['Gloss'] + """</p>"""
     except Exception as inst:
         pass
     try:
         if input_data['Gram']:
             output = output + grammer.grammer(input_data['Gram'])
     except Exception as inst:
-        pass  
+        pass 
+    try:
+        if input_data['SenseID']:
+            output = output + """<div class="inside_box">"""
+    except Exception as inst:
+        pass 
     try:
         if input_data['Examples']:
-            output = output + """<p>Piemēri:</p>"""
-        for e in input_data['Examples']:
-            output = output + phrase(e)
+            output = output + """<p><b1>Piemēri:</b1></p>"""
+            for e in input_data['Examples']:
+                output = output + phrase(e)
     except Exception as inst:
         pass
-    output = output + """<div class="inside_box">"""
     try:
         if input_data['Senses']:
-            output = output + sense(input_data['Senses'])
+            output = output + """<p id="top_of_list"><b1>Apakšnozīmes:</b1></p><div class="inside_box">"""
+            for s in input_data['Senses']:
+                output = output + sense(s)
+            output = output + """</div>"""
     except Exception as inst:
         pass
-    output = output + """</div>"""
     try:
         if input_data['SenseID']:
             output = output + """</div>"""
     except Exception as inst:
         pass
-    output = output + """</div>"""
     return output
 
 # Function for outputing phrases
@@ -47,18 +51,17 @@ def phrase(input_data):
     output = """<div class="phrases">"""
     try:
         if input_data['Phrase']['Text']:
-            output = output + """<p>""" + input_data['Phrase']['Text'] + """:</p>"""
+            output = output + """<p><b>""" + input_data['Phrase']['Text'] + """ — </b>"""
+    except Exception as inst:
+        pass
+    try:
+        for s in input_data['Phrase']['Senses']:
+            output = output + sense(s)
     except Exception as inst:
         pass
     try:
         if input_data['Phrase']['Gram']:
             output = output + grammer.grammer(input_data['Phrase']['Gram'])
-    except Exception as inst:
-        pass
-    try:
-        
-        for s in input_data['Phrase']['Senses']:
-            output = output + sense(s)
     except Exception as inst:
         pass
     output = output + """</div>"""

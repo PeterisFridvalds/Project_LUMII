@@ -1,6 +1,5 @@
 from website import grammer
 from website import senses
-##from website import phrases
 
 # Function for outputing all data about input word
 def analizer(input_data):
@@ -12,17 +11,20 @@ def analizer(input_data):
           pass
     try:
         if input_data['ID']:
-            output = output + """<p>ID: """ + input_data['ID'] + """</p>"""
+            output = output + """<p class="inside_box">ID: """ + input_data['ID'] + """</p>"""
     except Exception as inst:
         pass
     try:
         for s in input_data['Senses']:
-            output = output + senses.sense(s)
+            output = output + """<div class="senses">""" + senses.sense(s) + """</div>"""
     except Exception as inst:
         pass
     try:
-        for p in input_data['Phrases']['Phrase']:
-            output = output + senses.phrase(p)
+        if input_data['Phrases']:
+            output = output + """<p class="inside_box" id="top_of_list"><b1>Frazeoliģismi:</b1></p><div class="inside_box">"""
+            for p in input_data['Phrases']:
+                output = output + senses.phrase(p)
+            output = output + """</div>"""
     except Exception as inst:
         pass
     try:
@@ -34,7 +36,7 @@ def analizer(input_data):
         pass
     try:
         if input_data['Sources']:
-            output = output + """<p>Avoti:</p>"""
+            output = output + """<p id="top_of_list"><b1>Avoti:</b1></p>"""
         for source in input_data['Sources']:
             output = output + """<p class="inside_box">""" + source + """</p>"""
     except Exception as inst:

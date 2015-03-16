@@ -16,22 +16,33 @@
 						<li>
 							<form id="input_word" method="post" action="/website/show/">
 								{% csrf_token %}
-								<!-- Hidden form field for precise word(case sensitive) -->
-								<input type="hidden" name="input_word" value="{{ i.Header.Lemma }}">
 								<!-- Renders the same page for alternative word -->
-								<input id="alternative_word" type="submit" name="submit" value="{{ i.Header.Lemma }}" />
+								{% if i.Header.Lemma == content %}
+									<input style="font-weight:bold; font-size:15px" id="alternative_word" type="submit" name="input_word" value="{{ i.Header.Lemma }}">
+								{% else %}
+									<input id="alternative_word" type="submit" name="input_word" value="{{ i.Header.Lemma }}">
+								{% endif %}
 							</form>
 						</li>
+						{% for d in i.Derivatives %}
+							<li class="inside_box">
+							<form id="input_word" method="post" action="/website/show/">
+								{% csrf_token %}
+								<!-- Renders the same page for alternative word -->
+								{% if d.Header.Lemma == content %}
+									<input style="font-weight:bold; font-size:15px" id="alternative_word" type="submit" name="input_word" value="{{ d.Header.Lemma }}">
+								{% else %}
+									<input id="alternative_word" type="submit" name="input_word" value="{{ d.Header.Lemma }}">
+								{% endif %}
+							</form>
+						</li>
+						{% endfor %}
 					{% endfor %}
 					</ul>
 				</td>
 				<td>
-					{% for i in data %}
-						<!-- Find right word(case sensitive) -->
-						{% if i.Header.Lemma == content %}
-							{{ output_data|safe }}
-						{% endif %}
-					{% endfor %}
+					<!-- Show output form analizet (HTML code) -->
+					{{ output_data|safe }}
 				</td>
 			</tr>
 		</table>
