@@ -11,6 +11,14 @@
 		<table>
 			<tr>
 				<td class="list_of_elem">
+					<p>Rādīt:</p>
+					<div style="padding-left:5px;">
+						<label><input type="checkbox" value="grammer" checked> Gramatiku</label><br>
+						<label><input type="checkbox" value="subsenses" checked> Apakšnozīmes</label><br>
+						<label><input type="checkbox" value="examples" checked> Piemērus</label><br>
+						<label><input type="checkbox" value="phrases" checked> Frazeoliģismus</label><br>
+						<label><input type="checkbox" value="sources" checked> Avotus</label><br>
+					</div>
 					<ul>
 					{% for i in data %}
 						<li>
@@ -18,19 +26,35 @@
 								{% csrf_token %}
 								<!-- Renders the same page for alternative word -->
 								{% if i.Header.Lemma == content %}
-									<input style="font-weight:bold; font-size:15px" id="alternative_word" type="submit" name="input_word" value="{{ i.Header.Lemma }}">
+									<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" name="input_word" value="{{ i.Header.Lemma }}">
 								{% else %}
 									<input id="alternative_word" type="submit" name="input_word" value="{{ i.Header.Lemma }}">
 								{% endif %}
 							</form>
 						</li>
+						{% for p in i.Header.Gram.AltLemmas %}
+							{% for k in i.Header.Gram.AltLemmas.p %}
+								<li class="inside_box">
+								<p>{{ p }}</p>
+								<form id="input_word" method="post" action="/website/show/">
+									{% csrf_token %}
+									<!-- Renders the same page for alternative word -->
+									{% if k.Lemma == content %}
+										<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" name="input_word" value="{{ k.Lemma }}">
+									{% else %}
+										<input id="alternative_word" type="submit" name="input_word" value="{{ k.Lemma }}">
+									{% endif %}
+								</form>
+								</li>
+							{% endfor %}
+						{% endfor %}
 						{% for d in i.Derivatives %}
 							<li class="inside_box">
 							<form id="input_word" method="post" action="/website/show/">
 								{% csrf_token %}
 								<!-- Renders the same page for alternative word -->
 								{% if d.Header.Lemma == content %}
-									<input style="font-weight:bold; font-size:15px" id="alternative_word" type="submit" name="input_word" value="{{ d.Header.Lemma }}">
+									<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" name="input_word" value="{{ d.Header.Lemma }}">
 								{% else %}
 									<input id="alternative_word" type="submit" name="input_word" value="{{ d.Header.Lemma }}">
 								{% endif %}

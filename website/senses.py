@@ -26,17 +26,18 @@ def sense(input_data):
         pass 
     try:
         if input_data['Examples']:
-            output = output + """<p><b1>Piemēri:</b1></p>"""
+            output = output + """<div class="examples"><p><b1>Piemēri:</b1></p>"""
             for e in input_data['Examples']:
                 output = output + phrase(e)
+            output = output + """</div>"""
     except Exception as inst:
         pass
     try:
         if input_data['Senses']:
-            output = output + """<p id="top_of_list"><b1>Apakšnozīmes:</b1></p><div class="inside_box">"""
+            output = output + """<div class="subsenses"><p id="top_of_list"><b1>Apakšnozīmes:</b1></p><div class="inside_box">"""
             for s in input_data['Senses']:
                 output = output + sense(s)
-            output = output + """</div>"""
+            output = output + """</div></div>"""
     except Exception as inst:
         pass
     try:
@@ -48,7 +49,7 @@ def sense(input_data):
 
 # Function for outputing phrases
 def phrase(input_data):
-    output = """<div class="phrases">"""
+    output = """<div class="inside_box">"""
     try:
         if input_data['Phrase']['Text']:
             output = output + """<p><b>""" + input_data['Phrase']['Text'] + """ — </b>"""

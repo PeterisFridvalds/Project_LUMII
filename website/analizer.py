@@ -21,10 +21,10 @@ def analizer(input_data):
         pass
     try:
         if input_data['Phrases']:
-            output = output + """<p class="inside_box" id="top_of_list"><b1>Frazeoliģismi:</b1></p><div class="inside_box">"""
+            output = output + """<div class="phrases"><p class="inside_box" id="top_of_list"><b1>Frazeoliģismi:</b1></p><div class="inside_box">"""
             for p in input_data['Phrases']:
                 output = output + senses.phrase(p)
-            output = output + """</div>"""
+            output = output + """</div></div>"""
     except Exception as inst:
         pass
     try:
@@ -36,10 +36,25 @@ def analizer(input_data):
         pass
     try:
         if input_data['Sources']:
-            output = output + """<p id="top_of_list"><b1>Avoti:</b1></p>"""
-        for source in input_data['Sources']:
-            output = output + """<p class="inside_box">""" + source + """</p>"""
+            output = output + """<div class="sources"><p id="top_of_list"><b1>Avoti:</b1></p>"""
+            for source in input_data['Sources']:
+                output = output + """<p class="inside_box">""" + source + """</p>"""
+            output = output + """</div>"""
     except Exception as inst:
         pass
     return output
 
+def AltLemmas(input_data, data):
+    output = """<div id="AltLemmas"><h1>""" + input_data['Lemma'] + """</h1>"""
+    output = output + grammer.grammer(input_data)
+    output = output + """<br><br><p>Sīkāk skatīt pie <b1>""" + data['Header']['Lemma'] + """</b1></p></div><input type="checkbox" name="AltLemmas" onclick="showMe('AltLemmas', name)">"""
+##    output = output + """<form id="input_word" method="post" action="/website/show/">""" + csrftoken + """
+##			<input id="alternative_word" type="submit" name="input_word" value=" """ + data['Header']['Lemma'] + """ "></form>"""
+    return output
+
+def Derivatives(input_data, data):
+    output = analizer(input_data)
+    output = output + """<br><br><p>Sīkāk skatīt pie <b1>""" + data['Header']['Lemma'] + """</b1></p>"""
+    output = output + """<form id="input_word" method="post" action="/website/show/">""" + cookie('csrftoken') + """
+			<input id="alternative_word" type="submit" name="input_word" value=" """ + data['Header']['Lemma'] + """ "></form>"""
+    return output

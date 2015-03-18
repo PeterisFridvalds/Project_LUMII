@@ -5,6 +5,8 @@
         <title>{% block title %}Tezaurs{% endblock %}</title>
 		<meta charset="utf-8">
         <link rel="stylesheet" href="{% static 'css/template.css' %}">
+		<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+		<script src="{% static 'javascript/template.js' %}"></script>
     </head>
 	
 	
@@ -27,7 +29,7 @@
 			<table>
 				<tr>
 					<td>
-						<h2>Skaidrojošā vārtdīca</h2>
+						<h2>Skaidrojošā vārdnīca</h2>
 						<!-- Input form -->
 						<form id="input_word" method="post" action="/website/show/">
 							{% csrf_token %}

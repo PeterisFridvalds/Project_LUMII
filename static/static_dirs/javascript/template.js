@@ -1,0 +1,19 @@
+$(document).ready(function(){
+    $('input[type="checkbox"]').click(function(){
+        if($(this).attr("value")=="grammer"){
+            $(".grammer").toggle();
+        }
+		if($(this).attr("value")=="subsenses"){
+            $(".subsenses").toggle();
+        }
+		if($(this).attr("value")=="examples"){
+            $(".examples").toggle();
+        }
+		if($(this).attr("value")=="phrases"){
+            $(".phrases").toggle();
+        }
+		if($(this).attr("value")=="sources"){
+            $(".sources").toggle();
+        }
+    });
+});

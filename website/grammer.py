@@ -20,16 +20,14 @@ def grammer(input_data):
     except Exception as inst:
         pass
             
-    numbers = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20",
-               "21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40"]
-    for p in numbers:
-        try:
+    try:
+        for p in input_data['AltLemmas']:
             for k in input_data['AltLemmas'][p]:
                 output = output + """<p id="lemma">""" + k['Lemma'] + """:</p>"""
                 output = output + """<p class="inside_box" id="top_of_list">Gramatika:</p>"""
                 for f in k['Flags']:
                     output = output + """<p class="double_inside_box">""" + f + """</p>"""
-        except Exception as inst:
-            pass
+    except Exception as inst:
+        pass
     output = output + """</div></div>"""
     return output
