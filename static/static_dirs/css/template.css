@@ -17,6 +17,10 @@
 	padding-top: 5px;
 	border: solid, 1px, RGB(200,200,240)
 }
+#left_side_menu
+{
+	min-width:130px;
+}
 #input_word_box
 {
 	background-color: RGB(255,255,200);
@@ -30,7 +34,7 @@
 .list_of_elem ul
 {
 	list-style-type: none;
-	padding-top: 50px;
+	padding-top: 25px;
 }
 #alternative_word
 {
@@ -81,4 +85,11 @@ b1
 {
 	font-weight: bold;
 	font-style: italic;
+	
+}
+b2
+{
+	font-weight: normal;
+	font-style: normal;
+	font-size: 17px;
 }

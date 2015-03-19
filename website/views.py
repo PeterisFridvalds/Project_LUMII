@@ -17,7 +17,10 @@ def index(request):
 def show(request):
     # Get the context from the request
     context = RequestContext(request)
-    
+
+    if request.POST['input_word'] == "":
+        context_dict = {'content':"", 'data':"No input word"}
+        return render_to_response('show.html', context_dict, context)
     # Check if it is POST method
     if request.method == 'POST':
         # open file and read from it
@@ -33,7 +36,7 @@ def show(request):
         # output_data = analizer.analizer(data)
 
         # Function returns word and data for outputing on screen
-        context_dict = search_word.return_centext_dict(data, request.POST['input_word'])
+        context_dict = search_word.return_centext_dict(data, request.POST['input_word'], request.POST['word_ID'])
 
     # Return a rendered response to send to the client.
     return render_to_response('show.html', context_dict, context)

@@ -6,13 +6,16 @@
 	
 	<!--word from input-->
 	{% if data == "No such word" %}
-		<h3>Vārds netika atrasts</h3>
+		<h3>Vārds netika atrasts!</h3>
+	{% elif data == "No input word" %}
+		<h2 style="color:red;">Vārds netika ievadīts!</h2>
 	{% else %} 
 		<table>
 			<tr>
-				<td class="list_of_elem">
+				<td class="list_of_elem" id="left_side_menu">
 					<p>Rādīt:</p>
 					<div style="padding-left:5px;">
+						<label><input type="checkbox" value="pronunciation" checked> Izruna</label><br>
 						<label><input type="checkbox" value="grammer" checked> Gramatiku</label><br>
 						<label><input type="checkbox" value="subsenses" checked> Apakšnozīmes</label><br>
 						<label><input type="checkbox" value="examples" checked> Piemērus</label><br>
@@ -22,9 +25,10 @@
 					<ul>
 					{% for i in data %}
 						<li>
-							<form id="input_word" method="post" action="/website/show/">
+							<form id="input_form" method="post" action="/website/show/">
 								{% csrf_token %}
 								<!-- Renders the same page for alternative word -->
+								<input type="hidden" name="word_ID" value="{{ i.ID }}">
 								{% if i.Header.Lemma == content %}
 									<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" name="input_word" value="{{ i.Header.Lemma }}">
 								{% else %}

@@ -1,6 +1,9 @@
 $(document).ready(function(){
     $('input[type="checkbox"]').click(function(){
-        if($(this).attr("value")=="grammer"){
+        if($(this).attr("value")=="pronunciation"){
+            $(".pronunciation").toggle();
+        }
+		if($(this).attr("value")=="grammer"){
             $(".grammer").toggle();
         }
 		if($(this).attr("value")=="subsenses"){

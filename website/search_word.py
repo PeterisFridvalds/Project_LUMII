@@ -5,11 +5,13 @@ def search_word(input_data, word):
     output = []
     try:
         for i in input_data:
+            # Looking for words, wich has the same speling, between main Lemmas, ignoring upper and lower letters
             try:
                 if i['Header']['Lemma'].upper() == word.upper():
                     output.append(i)
             except Exception as inst:
                 pass
+            # Looking for words, wich has the same speling, between AltLemmas, ignoring upper and lower letters
             try:
                 for p in i['Header']['Gram']['AltLemmas']:
                     for k in i['Header']['Gram']['AltLemmas'][p]:
@@ -17,6 +19,7 @@ def search_word(input_data, word):
                             output.append(i)       
             except Exception as inst:
                 pass
+            # Looking for words, wich has the same speling, between Derivatives, ignoring upper and lower letters
             try:
                 for d in i['Derivatives']:
                     if d['Header']['Lemma'].upper() == word.upper():
@@ -27,7 +30,7 @@ def search_word(input_data, word):
         pass
     return output
 
-def return_centext_dict(input_data, word):
+def return_centext_dict(input_data, word, homonim_id):
     # No input_data means that no word was found
     if input_data == []:
         return {'content':word, 'data':"No such word"}
@@ -35,9 +38,14 @@ def return_centext_dict(input_data, word):
     for i in input_data:
         try:
             if i['Header']['Lemma'] == word:
-                return {'content':word, 'data':input_data, 'output_data':analizer.analizer(i)}
+##                return {'content':word, 'data':input_data, 'output_data':analizer.analizer(i)}
+                if homonim_id == "0":
+                    return {'content':word, 'data':input_data, 'output_data':analizer.analizer(i)}
+                if homonim_id == i['ID']:
+                    return {'content':word, 'data':input_data, 'output_data':analizer.analizer(i)}
         except Exception as inst:
             pass
+        # Looking for words, wich has the same speling, between AltLemmas, ignoring upper and lower letters
         try:
             for p in i['Header']['Gram']['AltLemmas']:
                 for k in i['Header']['Gram']['AltLemmas'][p]:
@@ -45,12 +53,13 @@ def return_centext_dict(input_data, word):
                         return {'content':word, 'data':input_data, 'output_data':analizer.AltLemmas(k, i)}            
         except Exception as inst:
             pass
+        # Looking for words, wich has the same speling, between Derivatives, ignoring upper and lower letters
         try:
             for d in i['Derivatives']:
                 if d['Header']['Lemma'].upper() == word.upper():
                     return {'content':word, 'data':input_data, 'output_data':analizer.Derivatives(d, i)}
         except Exception as inst:
             pass
-    # If function breaks first loop, then put the first word as input word
+    # If function breaks the loop, then put the first word as input word
     for i in input_data:
         return {'content':i['Header']['Lemma'], 'data':input_data, 'output_data':analizer.analizer(i)}

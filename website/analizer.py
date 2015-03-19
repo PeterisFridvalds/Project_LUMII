@@ -3,7 +3,13 @@ from website import senses
 
 # Function for outputing all data about input word
 def analizer(input_data):
-    output = """<h1>""" + input_data['Header']['Lemma'] + """</h1>"""
+    try:
+        if input_data['Header']['Pronunciation']:
+            output = """<h1>""" + input_data['Header']['Lemma'] + """ <b1 class="pronunciation">- <b2><b1> Izruna: </b1>""" + input_data['Header']['Pronunciation'] + """</b2></b1></h1>"""
+        else:
+            output = """<h1>""" + input_data['Header']['Lemma'] + """</h1>"""
+    except Exception as inst:
+          pass
     try:
         if input_data['Header']['Gram']:
             output = output + grammer.grammer(input_data['Header']['Gram'])
@@ -11,7 +17,8 @@ def analizer(input_data):
           pass
     try:
         if input_data['ID']:
-            output = output + """<p class="inside_box">ID: """ + input_data['ID'] + """</p>"""
+            if input_data['ID'] != "0":
+                output = output + """<p class="inside_box" style="font-weight:bold;">Homonīms</p>"""
     except Exception as inst:
         pass
     try:
