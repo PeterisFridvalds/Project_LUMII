@@ -36,21 +36,19 @@
 								{% endif %}
 							</form>
 						</li>
-						{% for p in i.Header.Gram.AltLemmas %}
-							{% for k in i.Header.Gram.AltLemmas.p %}
-								<li class="inside_box">
-								<p>{{ p }}</p>
+						{% for alt in AltLemmas_out %}
+							<li class="inside_box">
 								<form id="input_word" method="post" action="/website/show/">
 									{% csrf_token %}
 									<!-- Renders the same page for alternative word -->
-									{% if k.Lemma == content %}
-										<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" name="input_word" value="{{ k.Lemma }}">
+									<input type="hidden" name="word_ID" value="{{ i.ID }}">
+									{% if alt == content %}
+										<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" name="input_word" value="{{ alt }}">
 									{% else %}
-										<input id="alternative_word" type="submit" name="input_word" value="{{ k.Lemma }}">
+										<input id="alternative_word" type="submit" name="input_word" value="{{ alt }}">
 									{% endif %}
 								</form>
-								</li>
-							{% endfor %}
+							</li>
 						{% endfor %}
 						{% for d in i.Derivatives %}
 							<li class="inside_box">

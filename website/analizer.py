@@ -3,13 +3,13 @@ from website import senses
 
 # Function for outputing all data about input word
 def analizer(input_data):
+    output = """<h1>""" + input_data['Header']['Lemma']
     try:
         if input_data['Header']['Pronunciation']:
-            output = """<h1>""" + input_data['Header']['Lemma'] + """ <b1 class="pronunciation">- <b2><b1> Izruna: </b1>""" + input_data['Header']['Pronunciation'] + """</b2></b1></h1>"""
-        else:
-            output = """<h1>""" + input_data['Header']['Lemma'] + """</h1>"""
+            output = output + """ <b1 class="pronunciation">- <b2><b1> Izruna: </b1>""" + input_data['Header']['Pronunciation'] + """</b2></b1>"""
     except Exception as inst:
           pass
+    output = output + """</h1>"""
     try:
         if input_data['Header']['Gram']:
             output = output + grammer.grammer(input_data['Header']['Gram'])
@@ -54,14 +54,10 @@ def analizer(input_data):
 def AltLemmas(input_data, data):
     output = """<div id="AltLemmas"><h1>""" + input_data['Lemma'] + """</h1>"""
     output = output + grammer.grammer(input_data)
-    output = output + """<br><br><p>Sīkāk skatīt pie <b1>""" + data['Header']['Lemma'] + """</b1></p></div><input type="checkbox" name="AltLemmas" onclick="showMe('AltLemmas', name)">"""
-##    output = output + """<form id="input_word" method="post" action="/website/show/">""" + csrftoken + """
-##			<input id="alternative_word" type="submit" name="input_word" value=" """ + data['Header']['Lemma'] + """ "></form>"""
+    output = output + """<br><br><p>Sīkāk skatīt pie <b1>""" + data['Header']['Lemma'] + """</b1></p></div>"""
     return output
 
 def Derivatives(input_data, data):
     output = analizer(input_data)
     output = output + """<br><br><p>Sīkāk skatīt pie <b1>""" + data['Header']['Lemma'] + """</b1></p>"""
-    output = output + """<form id="input_word" method="post" action="/website/show/">""" + cookie('csrftoken') + """
-			<input id="alternative_word" type="submit" name="input_word" value=" """ + data['Header']['Lemma'] + """ "></form>"""
     return output
