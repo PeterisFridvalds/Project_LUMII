@@ -18,5 +18,11 @@ $(document).ready(function(){
 		if($(this).attr("value")=="sources"){
             $(".sources").toggle();
         }
+		if($(this).attr("value")=="auto_data"){
+            $(".auto_data").toggle();
+        }
+		if($(this).attr("value")=="inflect"){
+            $(".inflect").toggle();
+        }
     });
 });

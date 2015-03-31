@@ -5,6 +5,12 @@ from website import senses
 def analizer(input_data):
     output = """<h1>""" + input_data['Header']['Lemma']
     try:
+        if input_data['ID']:
+            if input_data['ID'] != "0":
+                output = output + """<sup><b1 style="font-size:15px">""" + input_data['ID'] + """</b1></sup>"""
+    except Exception as inst:
+        pass
+    try:
         if input_data['Header']['Pronunciation']:
             output = output + """ <b1 class="pronunciation">- <b2><b1> Izruna: </b1>""" + input_data['Header']['Pronunciation'] + """</b2></b1>"""
     except Exception as inst:

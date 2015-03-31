@@ -21,6 +21,8 @@
 						<label><input type="checkbox" value="examples" checked> Piemērus</label><br>
 						<label><input type="checkbox" value="phrases" checked> Frazeoliģismus</label><br>
 						<label><input type="checkbox" value="sources" checked> Avotus</label><br>
+						<label><input type="checkbox" value="auto_data" checked> Automātiski ģenerēti dati</label><br>
+						<label><input type="checkbox" value="inflect" checked> Locījumi</label><br>
 					</div>
 					<ul>
 					{% for i in data %}
@@ -29,36 +31,54 @@
 								{% csrf_token %}
 								<!-- Renders the same page for alternative word -->
 								<input type="hidden" name="word_ID" value="{{ i.ID }}">
+								<input type="hidden" name="input_word" value="{{ i.Header.Lemma }}">
 								{% if i.Header.Lemma == content %}
-									<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" name="input_word" value="{{ i.Header.Lemma }}">
+									{% if i.ID == hom_id %}
+										<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" value="{{ i.Header.Lemma }}">
+									{% else %}
+										<input id="alternative_word" type="submit" value="{{ i.Header.Lemma }}">
+									{% endif %}
 								{% else %}
-									<input id="alternative_word" type="submit" name="input_word" value="{{ i.Header.Lemma }}">
+									<input id="alternative_word" type="submit" value="{{ i.Header.Lemma }}">
 								{% endif %}
 							</form>
 						</li>
 						{% for alt in AltLemmas_out %}
+							{% if alt.lemma == i.Header.Lemma %}
 							<li class="inside_box">
 								<form id="input_word" method="post" action="/website/show/">
 									{% csrf_token %}
 									<!-- Renders the same page for alternative word -->
 									<input type="hidden" name="word_ID" value="{{ i.ID }}">
+									<input type="hidden" name="input_word" value="{{ alt.altLemma }}">
 									{% if alt == content %}
-										<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" name="input_word" value="{{ alt }}">
+										{% if i.ID == hom_id %}
+											<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" value="{{ alt.altLemma }}">
+										{% else %}
+											<input id="alternative_word" type="submit" value="{{ alt.altLemma }}">
+										{% endif %}
 									{% else %}
-										<input id="alternative_word" type="submit" name="input_word" value="{{ alt }}">
+										<input id="alternative_word" type="submit" value="{{ alt.altLemma }}">
 									{% endif %}
 								</form>
 							</li>
+							{% endif %}
 						{% endfor %}
 						{% for d in i.Derivatives %}
 							<li class="inside_box">
 							<form id="input_word" method="post" action="/website/show/">
 								{% csrf_token %}
 								<!-- Renders the same page for alternative word -->
+								<input type="hidden" name="word_ID" value="{{ i.ID }}">
+								<input type="hidden" name="input_word" value="{{ d.Header.Lemma }}">
 								{% if d.Header.Lemma == content %}
-									<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" name="input_word" value="{{ d.Header.Lemma }}">
+									{% if i.ID == hom_id %}
+										<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" value="{{ d.Header.Lemma }}">
+									{% else %}
+										<input id="alternative_word" type="submit" value="{{ d.Header.Lemma }}">
+									{% endif %}
 								{% else %}
-									<input id="alternative_word" type="submit" name="input_word" value="{{ d.Header.Lemma }}">
+									<input id="alternative_word" type="submit" value="{{ d.Header.Lemma }}">
 								{% endif %}
 							</form>
 						</li>
@@ -66,9 +86,14 @@
 					{% endfor %}
 					</ul>
 				</td>
-				<td>
+				<td style="vertical-align:top;">
 					<!-- Show output form analizet (HTML code) -->
 					{{ output_data|safe }}
+				</td>
+				<td class="auto_data" style="vertical-align:top;">
+					<h2>Automātiski ģenerēti dati</h2>
+					<!-- Show output form analizet (HTML code) -->
+					{{ automatic_output_data|safe }}
 				</td>
 			</tr>
 		</table>
