@@ -1,5 +1,6 @@
 import requests
 import json
+from website import webservice_analizer
 
 def phonetic_transcriber(input_word):
     url = 'http://ezis.ailab.lv:8182/phonetic_transcriber/' + input_word + '?phoneme_set=ipa'
@@ -14,6 +15,16 @@ def inflect_word(input_word):
     return inflect_analizer(infleted_word)
 
 def inflect_analizer(input_data):
+    output = ""
+    noun = []
+    adverb = []
+##    verb = []
+##    adjective = []
+##    pronoun = []
+##    abbreviation = []
+##    punctuation_mark = []
+##    interjection = []
+##    residual = []
     for elem in input_data:
         try:
             for line in elem:
@@ -23,49 +34,21 @@ def inflect_analizer(input_data):
             pass
         try:
             for line in elem:
-                output = output + """<p>""" + line['Vārdšķira']
-                try:
-                    if line['Deklinācija']:
-                        output = output + ", " + line['Deklinācija'] + """. deklinācija, """ + line['Dzimte'] + """</p><h3 class="inflect">Locījumi</h3>"""
-                except Exception as inst:
-                    pass
-                output = output + """<table class="inflect">"""
                 if line['Vārdšķira'] == "Lietvārds":
-                    output = output + """<tr><td><b>Locījums</b></td><td><b>Vienskaitlis</b></td><td><b>Daudzskaitlis</b></td></tr>"""
-                break
+                    noun.append(line)
+                if line['Vārdšķira'] == "Apstākļa vārds":
+                    adverb.append(line)
         except Exception as inst:
             pass
         try:
-            for line in elem:
-                if line['Locījums'] == "Nominatīvs":
-                    output = output + """<tr><td><b1>Nominatīvs</b1></td>"""
-                break
-            for line in elem:
-                if line['Locījums'] == "Nominatīvs":
-                    output = output + """<td>""" + line['Vārds'] + """</td>"""
-            output = output + """</tr><tr><td><b1>Ģenitīvs</b1></td>"""
-            for line in elem:
-                if line['Locījums'] == "Ģenitīvs":
-                    output = output + """<td>""" + line['Vārds'] + """</td>"""
-            output = output + """</tr><tr><td><b1>Datīvs</b1></td>"""
-            for line in elem:
-                if line['Locījums'] == "Datīvs":
-                    output = output + """<td>""" + line['Vārds'] + """</td>"""
-            output = output + """</tr><tr><td><b1>Akuzatīvs</b1></td>"""
-            for line in elem:
-                if line['Locījums'] == "Akuzatīvs":
-                    output = output + """<td>""" + line['Vārds'] + """</td>"""
-            output = output + """</tr><tr><td><b1>Lokatīvs</b1></td>"""
-            for line in elem:
-                if line['Locījums'] == "Lokatīvs":
-                    output = output + """<td>""" + line['Vārds'] + """</td>"""
-            output = output + """</tr><tr><td><b1>Vokatīvs</b1></td>"""
-            for line in elem:
-                if line['Locījums'] == "Vokatīvs":
-                    output = output + """<td>""" + line['Vārds'] + """</td>"""
-            output = output + """</tr>"""
+            if noun != []:
+                output = output + webservice_analizer.noun_analizer(noun)
         except Exception as inst:
             pass
-        output = output + """</table>"""
+        try:
+            if adverb != []:
+                output = output + webservice_analizer.adverb_analizer(adverb)
+        except Exception as inst:
+            pass
         return output
         

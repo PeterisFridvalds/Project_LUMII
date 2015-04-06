@@ -23,6 +23,6 @@ $(document).ready(function(){
         }
 		if($(this).attr("value")=="inflect"){
             $(".inflect").toggle();
-        }
+		}
     });
 });

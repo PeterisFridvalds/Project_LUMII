@@ -77,6 +77,15 @@ p
 {
 	padding-left: 25px;
 }
+#auto_table
+{
+	border: 0;
+}
+#auto_table td
+{
+	border-bottom: 1px solid black;
+	vertical-align:top;
+}
 b
 {
 	font-weight: bold;
