@@ -34,7 +34,7 @@ def search_word(input_data, word):
 def return_centext_dict(input_data, word, homonim_id):
     # No input_data means that no word was found
     if input_data == []:
-        return {'content':word, 'data':"No such word"}
+        return {'content':word, 'data':"No such word", 'automatic_output_data':get_from_page.inflect_word(word)}
     # Loop for finding if some word is exactly the same as input word
     AltLemmas_out = []
     for i in input_data:

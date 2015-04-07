@@ -97,60 +97,7 @@ def noun_analizer(input_data):
                         output = output + line['Vārds'] + "; "
             except Exception as inst:
                 pass
-        output = output + """</td></tr></table></div>"""
-    except Exception as inst:
-        pass
-    return output
-
-def adverb_analizer(input_data):
-    output = ""
-    pamata_v = []
-    paraka_v = []
-    visparaka_v = []
-    pamata_s = []
-    paraka_s = []
-    visparaka_s = []
-    try:
-        for line in input_data:
-            if line['Pakāpe'] == "Pamata":
-                if line['Dzimte'] == "Vīriešu":
-                    pamata_v.append(line)
-                if line['Dzimte'] == "Sieviešu":
-                    pamata_s.append(line)
-            if line['Pakāpe'] == "Pārākā":
-                if line['Dzimte'] == "Vīriešu":
-                    paraka_v.append(line)
-                if line['Dzimte'] == "Sieviešu":
-                    paraka_s.append(line)
-            if line['Pakāpe'] == "Vispārākā":
-                if line['Dzimte'] == "Vīriešu":
-                    visparaka_v.append(line)
-                if line['Dzimte'] == "Sieviešu":
-                    visparaka_s.append(line)
-    except Exception as inst:
-        pass
-    try:
-        output = output + """<h3>Vīriešu dzimte, pamata pakāpe</h3>""" + noun_analizer(pamata_v)
-    except Exception as inst:
-        pass
-    try:
-        output = output + """<h3>Vīriešu dzimte, pārākā pakāpe</h3>""" + noun_analizer(paraka_v)
-    except Exception as inst:
-        pass
-    try:
-        output = output + """<h3>Vīriešu dzimte, vispārākā pakāpe</h3>""" + noun_analizer(visparaka_v)
-    except Exception as inst:
-        pass
-    try:
-        output = output + """<h3>Sieviesu dzimte, pamata pakāpe</h3>""" + noun_analizer(pamata_s)
-    except Exception as inst:
-        pass
-    try:
-        output = output + """<h3>Sieviesu dzimte, pārākā pakāpe</h3>""" + noun_analizer(paraka_s)
-    except Exception as inst:
-        pass
-    try:
-        output = output + """<h3>Sieviesu dzimte, vispārākā pakāpe</h3>""" + noun_analizer(visparaka_s)
+        output = output + """</td></tr></table><br></div>"""
     except Exception as inst:
         pass
     return output

@@ -1,6 +1,8 @@
 import requests
 import json
-from website import webservice_analizer
+from website import noun_analizer
+from website import adverb_analizer
+from website import verb_analizer
 
 def phonetic_transcriber(input_word):
     url = 'http://ezis.ailab.lv:8182/phonetic_transcriber/' + input_word + '?phoneme_set=ipa'
@@ -18,7 +20,7 @@ def inflect_analizer(input_data):
     output = ""
     noun = []
     adverb = []
-##    verb = []
+    verb = []
 ##    adjective = []
 ##    pronoun = []
 ##    abbreviation = []
@@ -38,16 +40,23 @@ def inflect_analizer(input_data):
                     noun.append(line)
                 if line['Vārdšķira'] == "Apstākļa vārds":
                     adverb.append(line)
+                if line['Vārdšķira'] == "Darbības vārds":
+                    verb.append(line)
         except Exception as inst:
             pass
         try:
             if noun != []:
-                output = output + webservice_analizer.noun_analizer(noun)
+                output = output + """<h2>Lietvārda locījumi</h2>""" + noun_analizer.noun_analizer(noun)
         except Exception as inst:
             pass
         try:
             if adverb != []:
-                output = output + webservice_analizer.adverb_analizer(adverb)
+                output = output + """<h2>Apstākļa vārda locījumi</h2>""" + adverb_analizer.adverb_analizer(adverb)
+        except Exception as inst:
+            pass
+        try:
+            if verb != []:
+                output = output + """<h2>Darbības vārda locījumi</h2>""" + verb_analizer.verb_analizer(verb)
         except Exception as inst:
             pass
         return output

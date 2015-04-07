@@ -6,9 +6,19 @@
 	
 	<!--word from input-->
 	{% if data == "No such word" %}
-		<h3>Vārds netika atrasts!</h3>
+		<table>
+			<tr>
+				<td style="vertical-align:top;"><h3>Vārds netika atrasts!</h3></td>
+				<td style="min-width:100px"></td>
+				<td>
+					<h2>Automātiski ģenerēti dati</h2>
+					<!-- Show output form analizet (HTML code) -->
+					{{ automatic_output_data|safe }}
+				</td>
+			</tr>
+		</table>
 	{% elif data == "No input word" %}
-		<h2 style="color:red;">Vārds netika ievadīts!</h2>
+		<<h2 style="color:red;">Vārds netika ievadīts!</h2>
 	{% else %} 
 		<table>
 			<tr>
