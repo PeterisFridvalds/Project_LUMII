@@ -77,6 +77,11 @@ p
 {
 	padding-left: 25px;
 }
+#loc_tab
+{
+	min-width:75px;
+	max-width:200px
+}
 #auto_table
 {
 	border: 0;

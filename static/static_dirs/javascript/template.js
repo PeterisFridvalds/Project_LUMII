@@ -24,5 +24,26 @@ $(document).ready(function(){
 		if($(this).attr("value")=="inflect"){
             $(".inflect").toggle();
 		}
+		if($(this).attr("value")=="nenot"){
+            $(".nenot").toggle();
+		}
+		if($(this).attr("value")=="isten_izt"){
+            $(".isten_izt").toggle();
+		}
+		if($(this).attr("value")=="atst_izt"){
+            $(".atst_izt").toggle();
+		}
+		if($(this).attr("value")=="vele_izt"){
+            $(".vele_izt").toggle();
+		}
+		if($(this).attr("value")=="vajadz_izt"){
+            $(".vajadz_izt").toggle();
+		}
+		if($(this).attr("value")=="pav_izt"){
+            $(".pav_izt").toggle();
+		}
+		if($(this).attr("value")=="divdabis"){
+            $(".divdabis").toggle();
+		}
     });
 });

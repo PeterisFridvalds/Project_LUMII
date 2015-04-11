@@ -3,6 +3,7 @@ import json
 from website import noun_analizer
 from website import adverb_analizer
 from website import verb_analizer
+##from website import pronoun_analizer
 
 def phonetic_transcriber(input_word):
     url = 'http://ezis.ailab.lv:8182/phonetic_transcriber/' + input_word + '?phoneme_set=ipa'
@@ -14,15 +15,16 @@ def inflect_word(input_word):
     url = 'http://ezis.ailab.lv:8182/inflect/json/lv/' + input_word
     retuned_element = requests.get(url)
     infleted_word = json.loads(retuned_element.text)
-    return inflect_analizer(infleted_word)
+    return inflect_analizer(infleted_word, input_word)
 
-def inflect_analizer(input_data):
-    output = ""
+def inflect_analizer(input_data, input_word):
+    output = """<p class="pronunciation"><b1>Izruna: </b1>""" + phonetic_transcriber(input_word) + """</p><br>"""
+    vardskira = ""
     noun = []
     adverb = []
     verb = []
+    pronoun = []
 ##    adjective = []
-##    pronoun = []
 ##    abbreviation = []
 ##    punctuation_mark = []
 ##    interjection = []
@@ -30,18 +32,21 @@ def inflect_analizer(input_data):
     for elem in input_data:
         try:
             for line in elem:
-                output = """<p class="pronunciation"><b1>Izruna: </b1>""" + phonetic_transcriber(line['Vārds']) + """</p><br>"""
-                break
+                if line['Vārds'] == input_word:
+                    vardskira.append(line['Vārdšķira'])
+                    break
         except Exception as inst:
             pass
         try:
             for line in elem:
-                if line['Vārdšķira'] == "Lietvārds":
-                    noun.append(line)
-                if line['Vārdšķira'] == "Apstākļa vārds":
-                    adverb.append(line)
+##                if line['Vārdšķira'] == "Lietvārds":
+##                    noun.append(line)
+##                if (line['Vārdšķira'] == "Apstākļa vārds") or (line['Vārdšķira'] == "Īpašības vārds"):
+##                    adverb.append(line)
                 if line['Vārdšķira'] == "Darbības vārds":
                     verb.append(line)
+##                if line['Vārdšķira'] == "Vietniekvārds":
+##                    pronoun.append(line)
         except Exception as inst:
             pass
         try:
@@ -57,6 +62,11 @@ def inflect_analizer(input_data):
         try:
             if verb != []:
                 output = output + """<h2>Darbības vārda locījumi</h2>""" + verb_analizer.verb_analizer(verb)
+        except Exception as inst:
+            pass
+        try:
+            if pronoun != []:
+                output = output + """<h2>Darbības vārda locījumi</h2>""" + pronoun_analizer.pronoun_analizer(pronoun)
         except Exception as inst:
             pass
         return output
