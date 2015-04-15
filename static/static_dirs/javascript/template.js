@@ -45,5 +45,36 @@ $(document).ready(function(){
 		if($(this).attr("value")=="divdabis"){
             $(".divdabis").toggle();
 		}
+		if($(this).attr("value")=="auto_gen_atvasin"){
+            $(".auto_gen_atvasin").toggle();
+			$(".check_box").toggle();
+		}
+		if($(this).attr("value")=="noun"){
+            $(".noun").toggle();
+		}
+		if($(this).attr("value")=="adverb"){
+            $(".adverb").toggle();
+		}
+		if($(this).attr("value")=="adjective"){
+            $(".adjective").toggle();
+		}
+		if($(this).attr("value")=="verb"){
+            $(".verb").toggle();
+		}
+		if($(this).attr("value")=="pronoun"){
+            $(".pronoun").toggle();
+		}
+		if($(this).attr("value")=="abbreviation"){
+            $(".abbreviation").toggle();
+		}
+		if($(this).attr("value")=="interjection"){
+            $(".interjection").toggle();
+		}
+		if($(this).attr("value")=="residual"){
+            $(".residual").toggle();
+		}
+		if($(this).attr("value")=="punctuation_mark"){
+            $(".punctuation_mark").toggle();
+		}
     });
 });

@@ -1,4 +1,4 @@
-def noun_analizer(input_data):
+def table_gen_no_sk(input_data):
     output = ""
     try:
         output = output + """<div class="inflect"><table id="auto_table"><tr><td><b1>Locījums</b1></td><td><b1>Vārds</b1></td></tr><tr><td><b1>Nominatīvs</b1></td><td id="loc_tab">"""

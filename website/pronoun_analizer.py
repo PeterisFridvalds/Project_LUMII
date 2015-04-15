@@ -1,11 +1,11 @@
-def from website import (input_data):
+def pronoun_analizer(input_data):
     output = ""
     try:
         for line in input_data:
-            output = output + """<p><b1>Vietniekvārds: </b1>""" + line['Vārds'] + """:</p>"""
+            output = output + """<p><b1>""" + line['Vārds'] + """: </b1></p>"""
             try:
                 if line['Locījums']:
-                    output = output + """<p class="inside_box">Locījums: """ + line['Vārds'] + """</p>"""
+                    output = output + """<p class="inside_box">Locījums: """ + line['Locījums'] + """</p>"""
             except Exception as inst:
                 pass
             try:
