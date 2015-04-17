@@ -1,3 +1,5 @@
+from website import unknown_analizer
+
 def person_analizer(input_data):
     output = ""
     past = []
@@ -48,16 +50,19 @@ def person_table_gen(input_data):
     pirm_pers = "0"
     otr_pers = "0"
     tres_pers = "0"
+    no_pers = []
     try:
         for line in input_data:
             #Pārbauda vai ir dati, kas attiecas uz noteiktu personu
             try:
                 if line['Persona'] == "1":
                     pirm_pers = "1"
-                if line['Persona'] == "2":
+                elif line['Persona'] == "2":
                     otr_pers = "1"
-                if line['Persona'] == "3":
+                elif line['Persona'] == "3":
                     tres_pers = "1"
+                else:
+                    no_pers.append(line)
             except Exception as inst:
                 pass
         output = output + """<div class="inflect">"""
@@ -141,12 +146,11 @@ def person_table_gen(input_data):
                         pass
             output = output + """</td></tr></table>"""
         #Ja persona nepiemīt, izvada vāru, kā arī informāciju, par to vai vārds ir vienskaitlī, daudzskaitlī vai tam skaitlis nepiemīt
-        for line in input_data:
-            try:
-                if line['Persona'] == "Nepiemīt":
-                    output = output + """<p><b1>""" + line['Vārds'] + """: </b1>Skaitlis: """ + line['Skaitlis'] + """</p>"""
-            except Exception as inst:
-                pass
+        try:
+            if no_pers != []:
+                output = output + unknown_analizer.unknown_analizer(no_pers)
+        except Exception as inst:
+            pass
         output = output + """</div>"""
     except Exception as inst:
         pass

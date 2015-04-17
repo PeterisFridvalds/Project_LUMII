@@ -1,4 +1,5 @@
 from website import table_gen_sk
+from website import unknown_analizer
 
 def adjective_analizer(input_data):
     output = ""
@@ -49,12 +50,8 @@ def adjective_analizer(input_data):
             output = output + """<p class="inside_box"><b1>Sieviesu dzimte, pārākā pakāpe</b1></</p>""" + table_gen_sk.table_gen_sk(paraka_s) + """<br>"""
         if visparaka_s != []:
             output = output + """<p class="inside_box"><b1>Sieviesu dzimte, vispārākā pakāpe</b1></p>""" + table_gen_sk.table_gen_sk(visparaka_s) + """<br>"""
-        for line in leftower:
-            output = output + """<p style="max-width: 500px"><b1>""" + line['Vārds'] + """: </b1>"""
-            for key in line:
-                if key != "Vārds":
-                    output = output + key + " - " + line[key] + "; "
-            output = output + """</p>"""
+        if leftower != []:
+            output = output + unknown_analizer.unknown_analizer(leftower)
     except Exception as inst:
         pass
     return output

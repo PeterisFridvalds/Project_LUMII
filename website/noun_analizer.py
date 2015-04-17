@@ -9,6 +9,7 @@ def noun_analizer(input_data):
     dekl_5 = []
     dekl_6 = []
     no_dekl = []
+    dekl = []
     try:
         #Ieadala iedotos datus pēc deklinācijām
         for line in input_data:
@@ -25,8 +26,10 @@ def noun_analizer(input_data):
                     dekl_5.append(line)
                 elif line['Deklinācija'] == "6":
                     dekl_6.append(line)
-                else:
+                elif line['Deklinācija'] == "0":
                     no_dekl.append(line)
+                else:
+                    dekl.append(line)
             except Exception as inst:
                 pass
         #pārbauda, vai ir kaut kādi dati, kas atiecas uz attiecīgo deklināciju, ja tādi ir, izsauc f-ju, kas izveido HTML kodu locījumiem
@@ -45,6 +48,8 @@ def noun_analizer(input_data):
                 output = output + """<p class="inside_box"><b1>6. deklinācija:</b1></p>""" + table_gen_sk.table_gen_sk(dekl_6)
             if no_dekl != []:
                 output = output + """<p class="inside_box"><b1>Deklinācija nepiemīt:</b1></p>""" + table_gen_sk.table_gen_sk(no_dekl)
+            if dekl != []:
+                output = output + """<p class="inside_box"><b1>Dekl:</b1></p>""" + table_gen_sk.table_gen_sk(no_dekl)
         except Exception as inst:
             pass
     except Exception as inst:

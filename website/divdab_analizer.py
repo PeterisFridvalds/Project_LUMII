@@ -1,5 +1,6 @@
 from website import table_gen_sk
 from website import table_gen_no_sk
+from website import unknown_analizer
 
 def divdab_analizer(input_data):
     output = ""
@@ -94,8 +95,7 @@ def sk_dzimt_analizer(input_data):
             if bezdz != []:
                 output = output + """<p class="double_inside_box"><b1>Dzimte nepiemīt, skaitlis nepiemīt</b1></p>""" + table_gen_no_sk.table_gen_no_sk(bezdz)
             if bez_loc != []:
-                for line in bez_loc:
-                    output = output + """<p class="double_inside_box"><b1>""" + line['Vārds'] + """: </b1>skaitlis: """ + line['Skaitlis'] + """, dzimet: """ + line['Dzimte'] + """</p>"""
+                output = output + unknown_analizer.unknown_analizer(bez_loc)
         except Exception as inst:
             pass
     except Exception as inst:
