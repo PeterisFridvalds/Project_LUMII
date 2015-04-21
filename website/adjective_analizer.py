@@ -3,32 +3,20 @@ from website import unknown_analizer
 
 def adjective_analizer(input_data):
     output = ""
-    pamata_v = []
-    paraka_v = []
-    visparaka_v = []
-    pamata_s = []
-    paraka_s = []
-    visparaka_s = []
+    pamata = []
+    paraka = []
+    visparaka = []
     leftower = []
     try:
         for line in input_data:
             try:
                 if (line['Pakāpe'] == "Pamata") or (line['Pakāpe'] == "Pārākā") or (line['Pakāpe'] == "Vispārākā"):
                     if line['Pakāpe'] == "Pamata":
-                        if line['Dzimte'] == "Vīriešu":
-                            pamata_v.append(line)
-                        if line['Dzimte'] == "Sieviešu":
-                            pamata_s.append(line)
+                        pamata.append(line)
                     elif line['Pakāpe'] == "Pārākā":
-                        if line['Dzimte'] == "Vīriešu":
-                            paraka_v.append(line)
-                        if line['Dzimte'] == "Sieviešu":
-                            paraka_s.append(line)
+                        paraka.append(line)
                     elif line['Pakāpe'] == "Vispārākā":
-                        if line['Dzimte'] == "Vīriešu":
-                            visparaka_v.append(line)
-                        if line['Dzimte'] == "Sieviešu":
-                            visparaka_s.append(line)
+                        visparaka.append(line)
                     else:
                         leftower.append(line)
                 else:
@@ -38,20 +26,73 @@ def adjective_analizer(input_data):
     except Exception as inst:
         pass
     try:
-        if pamata_v != []:
-            output = output + """<p class="inside_box"><b1>Vīriešu dzimte, pamata pakāpe</b1></</p>""" + table_gen_sk.table_gen_sk(pamata_v) + """<br>"""
-        if paraka_v != []:
-            output = output + """<p class="inside_box"><b1>Vīriešu dzimte, pārākā pakāpe</b1></</p>""" + table_gen_sk.table_gen_sk(paraka_v) + """<br>"""
-        if visparaka_v != []:
-            output = output + """<p class="inside_box"><b1>Vīriešu dzimte, vispārākā pakāpe</b1></</p>""" + table_gen_sk.table_gen_sk(visparaka_v) + """<br>"""
-        if pamata_s != []:
-            output = output + """<p class="inside_box"><b1>Sieviesu dzimte, pamata pakāpe</b1></</p>""" + table_gen_sk.table_gen_sk(pamata_s) + """<br>"""
-        if paraka_s != []:
-            output = output + """<p class="inside_box"><b1>Sieviesu dzimte, pārākā pakāpe</b1></</p>""" + table_gen_sk.table_gen_sk(paraka_s) + """<br>"""
-        if visparaka_s != []:
-            output = output + """<p class="inside_box"><b1>Sieviesu dzimte, vispārākā pakāpe</b1></p>""" + table_gen_sk.table_gen_sk(visparaka_s) + """<br>"""
+        if pamata != []:
+            output = output + """<p class="inside_box"><b1>Pamata pakāpe</b1></</p>""" + dzimtes_analizer(pamata)
+        if paraka != []:
+            output = output + """<p class="inside_box"><b1>Pārākā pakāpe</b1></</p>""" + dzimtes_analizer(paraka)
+        if visparaka != []:
+            output = output + """<p class="inside_box"><b1>Vispārākā pakāpe</b1></</p>""" + dzimtes_analizer(visparaka)
         if leftower != []:
             output = output + unknown_analizer.unknown_analizer(leftower)
     except Exception as inst:
         pass
+    return output
+
+def dzimtes_analizer(input_data):
+    output = ""
+    vir = []
+    siev = []
+    nepiem = []
+    try:
+        for line in input_data:
+            try:
+                if line['Dzimte'] == "Vīriešu":
+                    vir.append(line)
+                elif line['Dzimte'] == "Sieviešu":
+                    siev.append(line)
+                else:
+                    nepiem.append(line)
+            except Exception as inst:
+                pass
+    except Exception as inst:
+        pass
+    try:
+        if vir != []:
+            output = output + """<div class="inside_box"><p class="inside_box"><b1>Vīriesu dzimte:</b1></</p>""" + noteiktibas_analizer(vir)
+        if siev != []:
+            output = output + """<div class="inside_box"><p class="inside_box"><b1>Sieviešu dzimte:</b1></</p>""" + noteiktibas_analizer(siev)
+        if nepiem != []:
+            output = output + unknown_analizer.unknown_analizer(nepiem)
+    except Exception as inst:
+        pass
+    return output
+
+def noteiktibas_analizer(input_data):
+    output = ""
+    noteikt = []
+    nenoteikt = []
+    nepiem = []
+    try:
+        for line in input_data:
+            try:
+                if line['Noteiktība'] == "Noteiktā":
+                    noteikt.append(line)
+                elif line['Noteiktība'] == "Nenoteiktā":
+                    nenoteikt.append(line)
+                else:
+                    nepiem.append(line)
+            except Exception as inst:
+                pass
+    except Exception as inst:
+        pass
+    try:
+        if noteikt != []:
+            output = output + """<p class="double_inside_box"><b1>Noteiktā galotne:</b1></</p>""" + table_gen_sk.table_gen_sk(noteikt) + """<br>"""
+        if nenoteikt != []:
+            output = output + """<p class="double_inside_box"><b1>Nenoteiktā galotne:</b1></</p>""" + table_gen_sk.table_gen_sk(nenoteikt) + """<br>"""
+        if nepiem != []:
+            output = output + unknown_analizer.unknown_analizer(nepiem)
+    except Exception as inst:
+        pass
+    output = output + """</div>"""
     return output

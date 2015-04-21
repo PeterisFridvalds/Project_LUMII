@@ -25,22 +25,42 @@ def divdab_analizer(input_data):
         #pārbauda, vai ir kaut kādi dati, kas atiecas uz attiecīgo laiku, ja tādi ir, izsauc f-ju, kas izveido HTML kodu locījumiem
         try:
             if past != []:
-                output = output + """<p class="inside_box"><b1>Pagātne:</b1></p>""" + sk_dzimt_analizer(past)
-        except Exception as inst:
-            pass
-        try:
+                output = output + """<p class="inside_box"><b1>Pagātne:</b1></p>""" + kartas_analizer(past)
             if present != []:
-                output = output + """<p class="inside_box"><b1>Tagadne:</b1></p>""" + sk_dzimt_analizer(present)
-        except Exception as inst:
-            pass
-        try:
+                output = output + """<p class="inside_box"><b1>Tagadne:</b1></p>""" + kartas_analizer(present)
             if future != []:
-                output = output + """<p class="inside_box"><b1>Nākotne:</b1></p>""" + sk_dzimt_analizer(future)
+                output = output + """<p class="inside_box"><b1>Nākotne:</b1></p>""" + kartas_analizer(future)
+            if no_time != []:
+                output = output + """<p class="inside_box"><b1>Laiks nepiemīt:</b1></p>""" + kartas_analizer(no_time)
         except Exception as inst:
             pass
+    except Exception as inst:
+        pass
+    return output
+
+def kartas_analizer(input_data):
+    output = ""
+    cies_karta = []
+    dar_karta = []
+    no_karta = []
+    try:
+        for line in input_data:
+            try:
+                if line['Kārta'] == "Ciešamā":
+                    cies_karta.append(line)
+                elif line['Kārta'] == "Darāmā":
+                    dar_karta.append(line)
+                else:
+                    no_karta.append(line)
+            except Exception as inst:
+                pass
         try:
-            if no_time != []:
-                output = output + """<p class="inside_box"><b1>Laiks nepiemīt:</b1></p>""" + sk_dzimt_analizer(no_time)
+            if cies_karta != []:
+                output = output + """<div class="inside_box"><p class="inside_box"><b1>Ciešamā kārta:</b1></p>""" + sk_dzimt_analizer(cies_karta)
+            if dar_karta != []:
+                output = output + """<div class="inside_box"><p class="inside_box"><b1>Darāmā kārta:</b1></p>""" + sk_dzimt_analizer(dar_karta)
+            if no_karta != []:
+                output = output + """<div class="inside_box"><p class="inside_box"><b1>Kārta nepiemīt:</b1></p>""" + sk_dzimt_analizer(no_karta)
         except Exception as inst:
             pass
     except Exception as inst:
@@ -89,7 +109,7 @@ def sk_dzimt_analizer(input_data):
             if sk_bezdz != []:
                 output = output + """<p class="double_inside_box"><b1>Dzimte nepiemīt</b1></p>""" + table_gen_sk.table_gen_sk(sk_bezdz)
             if vir != []:
-                output = output + """<p class="double_inside_box"><b1>Vīriesu dzimte, skaitlis nepiemīt</b1></p>""" + table_gen_no_sk.table_gen_no_sk(vir)
+                output = output + """<p class="double_inside_box"><b1>Vīriesu dzimte, skaitlis nepiemīt</b1></p><""" + table_gen_no_sk.table_gen_no_sk(vir)
             if siev != []:
                 output = output + """<p class="double_inside_box"><b1>Sieviešu dzimte, skaitlis nepiemīt</b1></p>""" + table_gen_no_sk.table_gen_no_sk(siev)
             if bezdz != []:
@@ -100,4 +120,5 @@ def sk_dzimt_analizer(input_data):
             pass
     except Exception as inst:
         pass
+    output = output + """</div>"""
     return output

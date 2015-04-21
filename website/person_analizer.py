@@ -23,22 +23,42 @@ def person_analizer(input_data):
         #pārbauda, vai ir kaut kādi dati, kas atiecas uz attiecīgo laiku, ja tādi ir, izsauc f-ju, kas izveido HTML kodu locījumiem
         try:
             if past != []:
-                output = output + """<p class="inside_box"><b1>Pagātne:</b1>""" + person_table_gen(past)
-        except Exception as inst:
-            pass
-        try:
+                output = output + """<p class="inside_box"><b1>Pagātne:</b1>""" + kartas_analizer(past)
             if present != []:
-                output = output + """<p class="inside_box"><b1>Tagadne:</b1>""" + person_table_gen(present)
-        except Exception as inst:
-            pass
-        try:
+                output = output + """<p class="inside_box"><b1>Tagadne:</b1>""" + kartas_analizer(present)
             if future != []:
-                output = output + """<p class="inside_box"><b1>Nākotne:</b1>""" + person_table_gen(future)
+                output = output + """<p class="inside_box"><b1>Nākotne:</b1>""" + kartas_analizer(future)
+            if no_time != []:
+                output = output + """<p class="inside_box"><b1>Laiks nepiemīt:</b1>""" + kartas_analizer(no_time)
         except Exception as inst:
             pass
+    except Exception as inst:
+        pass
+    return output
+
+def kartas_analizer(input_data):
+    output = ""
+    cies_karta = []
+    dar_karta = []
+    no_karta = []
+    try:
+        for line in input_data:
+            try:
+                if line['Kārta'] == "Ciešamā":
+                    cies_karta.append(line)
+                elif line['Kārta'] == "Darāmā":
+                    dar_karta.append(line)
+                else:
+                    no_karta.append(line)
+            except Exception as inst:
+                pass
         try:
-            if no_time != []:
-                output = output + """<p class="inside_box"><b1>Laiks nepiemīt:</b1>""" + person_table_gen(no_time)
+            if cies_karta != []:
+                output = output + """<div class="inside_box"><p class="inside_box"><b1>Ciešamā kārta:</b1></p>""" + person_table_gen(cies_karta)
+            if dar_karta != []:
+                output = output + """<div class="inside_box"><p class="inside_box"><b1>Darāmā kārta:</b1></p>""" + person_table_gen(dar_karta)
+            if no_karta != []:
+                output = output + """<div class="inside_box"><p class="inside_box"><b1>Kārta nepiemīt:</b1></p>""" + person_table_gen(no_karta)
         except Exception as inst:
             pass
     except Exception as inst:
@@ -151,7 +171,7 @@ def person_table_gen(input_data):
                 output = output + unknown_analizer.unknown_analizer(no_pers)
         except Exception as inst:
             pass
-        output = output + """</div>"""
+        output = output + """</div></div>"""
     except Exception as inst:
         pass
     return output
