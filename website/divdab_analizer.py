@@ -1,13 +1,13 @@
-from website import table_gen_sk
-from website import table_gen_no_sk
-from website import unknown_analizer
+from website import table_gen
 
-def divdab_analizer(input_data):
+#Funkcija, kas iedala divdabjus pēc laika
+def divdab_analizer(input_data, keys = []):
     output = ""
     past = []
     present = []
     future = []
     no_time = []
+    keys.append("Laiks")
     try:
         #Ieadala iedotos datus pēc laikiem
         for line in input_data:
@@ -21,29 +21,33 @@ def divdab_analizer(input_data):
                 else:
                     no_time.append(line)
             except Exception as inst:
-                pass
-        #pārbauda, vai ir kaut kādi dati, kas atiecas uz attiecīgo laiku, ja tādi ir, izsauc f-ju, kas izveido HTML kodu locījumiem
+                no_time.append(line)
+                
+        #Izsauc funkciju, kas apstrādā attiecīgo laiku
         try:
             if past != []:
-                output = output + """<p class="inside_box"><b1>Pagātne:</b1></p>""" + kartas_analizer(past)
+                output = output + """<div class="inside_box"><p><b1>Pagātne:</b1></p>""" + kartas_analizer(past, keys) + """</div>"""
             if present != []:
-                output = output + """<p class="inside_box"><b1>Tagadne:</b1></p>""" + kartas_analizer(present)
+                output = output + """<div class="inside_box"><p><b1>Tagadne:</b1></p>""" + kartas_analizer(present, keys) + """</div>"""
             if future != []:
-                output = output + """<p class="inside_box"><b1>Nākotne:</b1></p>""" + kartas_analizer(future)
+                output = output + """<div class="inside_box"><p><b1>Nākotne:</b1></p>""" + kartas_analizer(future, keys) + """</div>"""
             if no_time != []:
-                output = output + """<p class="inside_box"><b1>Laiks nepiemīt:</b1></p>""" + kartas_analizer(no_time)
+                output = output + """<div class="inside_box"><p><b1>Laiks nepiemīt:</b1></p>""" + kartas_analizer(no_time, keys) + """</div>"""
         except Exception as inst:
             pass
     except Exception as inst:
         pass
     return output
 
-def kartas_analizer(input_data):
+#Funkcija, kas iedala iedotos datus pēc kārtas
+def kartas_analizer(input_data, keys = []):
     output = ""
     cies_karta = []
     dar_karta = []
     no_karta = []
+    keys.append("Kārta")
     try:
+        #Iedala iedotos datus pēc kārtas
         for line in input_data:
             try:
                 if line['Kārta'] == "Ciešamā":
@@ -53,72 +57,51 @@ def kartas_analizer(input_data):
                 else:
                     no_karta.append(line)
             except Exception as inst:
-                pass
+                no_karta.append(line)
+        #Izsauc funkciju, kas apstādā attiecīgo laiku
         try:
             if cies_karta != []:
-                output = output + """<div class="inside_box"><p class="inside_box"><b1>Ciešamā kārta:</b1></p>""" + sk_dzimt_analizer(cies_karta)
+                output = output + """<div class="inside_box"><p><b1>Ciešamā kārta:</b1></p>""" + sk_dzimt_analizer(cies_karta, keys) + """</div>"""
             if dar_karta != []:
-                output = output + """<div class="inside_box"><p class="inside_box"><b1>Darāmā kārta:</b1></p>""" + sk_dzimt_analizer(dar_karta)
+                output = output + """<div class="inside_box"><p><b1>Darāmā kārta:</b1></p>""" + sk_dzimt_analizer(dar_karta, keys) + """</div>"""
             if no_karta != []:
-                output = output + """<div class="inside_box"><p class="inside_box"><b1>Kārta nepiemīt:</b1></p>""" + sk_dzimt_analizer(no_karta)
+                output = output + """<div class="inside_box"><p><b1>Kārta nepiemīt:</b1></p>""" + sk_dzimt_analizer(no_karta, keys) + """</div>"""
         except Exception as inst:
             pass
     except Exception as inst:
         pass
     return output
 
-def sk_dzimt_analizer(input_data):
+#Funkcija, kas iedala iedotos datus pēc dzimtes
+def sk_dzimt_analizer(input_data, keys = []):
     output = ""
-    sk_vir = []
-    sk_siev = []
-    sk_bezdz = []
-    sk_bez_loc = []
     siev = []
     vir = []
-    bez_loc = []
     bezdz = []
+    keys.append("Dzimte")
     try:
-        #Ārējais cikls ieadala iedotos datus pēc skaitļa, iekšejais - pēc dzimtes
+        #Iedala iedotos datus pēc dzimtes
         for line in input_data:
             try:
-                if (line['Skaitlis'] == "Vienskaitlis") or (line['Skaitlis'] == "Daudzskaitlis"):
-                    if line['Dzimte'] == "Vīriešu":
-                        sk_vir.append(line)
-                    elif line['Dzimte'] == "Sieviešu":
-                        sk_siev.append(line)
-                    elif line['Locījums'] == "Nepiemīt":
-                        bez_loc.append(line)
-                    else:
-                        sk_bezdz.append(line)
+                if line['Dzimte'] == "Vīriešu":
+                    vir.append(line)
+                elif line['Dzimte'] == "Sieviešu":
+                    siev.append(line)
                 else:
-                    if line['Dzimte'] == "Vīriešu":
-                        vir.append(line)
-                    elif line['Dzimte'] == "Sieviešu":
-                        siev.append(line)
-                    elif line['Locījums'] == "Nepiemīt":
-                        bez_loc.append(line)
-                    else:
-                        bezdz.append(line)
+                    bezdz.append(line)
             except Exception as inst:
-                pass
+                bezdz.append(line)
+
+        #Izsauc funkciju, kas apstrādās attiecīgo dzimti
         try:
-            if sk_vir != []:
-                output = output + """<p class="double_inside_box"><b1>Vīriesu dzimte</b1></p>""" + table_gen_sk.table_gen_sk(sk_vir)
-            if sk_siev != []:
-                output = output + """<p class="double_inside_box"><b1>Sieviešu dzimte</b1></p>""" + table_gen_sk.table_gen_sk(sk_siev)
-            if sk_bezdz != []:
-                output = output + """<p class="double_inside_box"><b1>Dzimte nepiemīt</b1></p>""" + table_gen_sk.table_gen_sk(sk_bezdz)
             if vir != []:
-                output = output + """<p class="double_inside_box"><b1>Vīriesu dzimte, skaitlis nepiemīt</b1></p><""" + table_gen_no_sk.table_gen_no_sk(vir)
+                output = output + """<p class="inside_box"><b1>Vīriesu dzimte:</b1></p>""" + table_gen.table_gen(vir, keys)
             if siev != []:
-                output = output + """<p class="double_inside_box"><b1>Sieviešu dzimte, skaitlis nepiemīt</b1></p>""" + table_gen_no_sk.table_gen_no_sk(siev)
+                output = output + """<p class="inside_box"><b1>Sieviešu dzimte:</b1></p>""" + table_gen.table_gen(siev, keys)
             if bezdz != []:
-                output = output + """<p class="double_inside_box"><b1>Dzimte nepiemīt, skaitlis nepiemīt</b1></p>""" + table_gen_no_sk.table_gen_no_sk(bezdz)
-            if bez_loc != []:
-                output = output + unknown_analizer.unknown_analizer(bez_loc)
+                output = output + """<p class="inside_box"><b1>Dzimte nepiemīt:</b1></p>""" + table_gen.table_gen(bezdz, keys)
         except Exception as inst:
             pass
     except Exception as inst:
         pass
-    output = output + """</div>"""
     return output

@@ -1,6 +1,7 @@
-from website import table_gen_sk
+from website import table_gen
 
-def noun_analizer(input_data):
+#Funkcija, kas analizē lietvārdus
+def noun_analizer(input_data, keys = ["Vārdšķira"]):
     output = ""
     dekl_1 = []
     dekl_2 = []
@@ -10,6 +11,7 @@ def noun_analizer(input_data):
     dekl_6 = []
     no_dekl = []
     dekl = []
+    keys.append('Deklinācija')
     try:
         #Ieadala iedotos datus pēc deklinācijām
         for line in input_data:
@@ -28,28 +30,36 @@ def noun_analizer(input_data):
                     dekl_6.append(line)
                 elif line['Deklinācija'] == "0":
                     no_dekl.append(line)
+                elif line['Deklinācija'] == "Nepiemīt":
+                    no_dekl.append(line)
                 else:
                     dekl.append(line)
             except Exception as inst:
-                pass
-        #pārbauda, vai ir kaut kādi dati, kas atiecas uz attiecīgo deklināciju, ja tādi ir, izsauc f-ju, kas izveido HTML kodu locījumiem
+                dekl.append(line)
+                
+        #Pārbauda, vai ir kaut kādi dati, kas atiecas uz attiecīgo deklināciju, ja tādi ir, izsauc f-ju, kas izveido HTML kodu locījumiem
         try:
             if dekl_1 != []:
-                output = output + """<p class="inside_box"><b1>1. deklinācija:</b1></p>""" + table_gen_sk.table_gen_sk(dekl_1)
+                output = output + """<p class="inside_box"><b1>1. deklinācija:</b1></p>""" + table_gen.table_gen(dekl_1, keys)
             if dekl_2 != []:
-                output = output + """<p class="inside_box"><b1>2. deklinācija:</b1></p>""" + table_gen_sk.table_gen_sk(dekl_2)
+                output = output + """<p class="inside_box"><b1>2. deklinācija:</b1></p>""" + table_gen.table_gen(dekl_2, keys)
             if dekl_3 != []:
-                output = output + """<p class="inside_box"><b1>3. deklinācija:</b1></p>""" + table_gen_sk.table_gen_sk(dekl_3)
+                output = output + """<p class="inside_box"><b1>3. deklinācija:</b1></p>""" + table_gen.table_gen(dekl_3, keys)
             if dekl_4 != []:
-                output = output + """<p class="inside_box"><b1>4. deklinācija:</b1></p>""" + table_gen_sk.table_gen_sk(dekl_4)
+                output = output + """<p class="inside_box"><b1>4. deklinācija:</b1></p>""" + table_gen.table_gen(dekl_4, keys)
             if dekl_5 != []:
-                output = output + """<p class="inside_box"><b1>5. deklinācija:</b1></p>""" + table_gen_sk.table_gen_sk(dekl_5)
+                output = output + """<p class="inside_box"><b1>5. deklinācija:</b1></p>""" + table_gen.table_gen(dekl_5, keys)
             if dekl_6 != []:
-                output = output + """<p class="inside_box"><b1>6. deklinācija:</b1></p>""" + table_gen_sk.table_gen_sk(dekl_6)
+                output = output + """<p class="inside_box"><b1>6. deklinācija:</b1></p>""" + table_gen.table_gen(dekl_6, keys)
             if no_dekl != []:
-                output = output + """<p class="inside_box"><b1>Deklinācija nepiemīt:</b1></p>""" + table_gen_sk.table_gen_sk(no_dekl)
+                output = output + """<p class="inside_box"><b1>Deklinācija nepiemīt:</b1></p>""" + table_gen.table_gen(no_dekl, keys)
             if dekl != []:
-                output = output + """<p class="inside_box"><b1>Dekl:</b1></p>""" + table_gen_sk.table_gen_sk(no_dekl)
+                try:
+                    for line in dekl:
+                        output = output + """<p class="inside_box"><b1>""" + line['Deklinācija'] + """:</b1></p>""" + table_gen.table_gen(dekl, keys)
+                        break
+                except Exception as inst:
+                    output = output + """<div class="inside_box">""" + table_gen.table_gen(dekl, ["Vārdšķira"]) + "</div>"
         except Exception as inst:
             pass
     except Exception as inst:

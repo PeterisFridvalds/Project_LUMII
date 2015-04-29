@@ -1,7 +1,8 @@
 from website import person_analizer
 from website import divdab_analizer
 
-def verb_analizer(input_data):
+#Funkcija, kas analizē darbības vārdus
+def verb_analizer(input_data, keys = ["Vārdšķira"]):
     output = ""
     divdabis = []
     isten_izt = []
@@ -10,6 +11,8 @@ def verb_analizer(input_data):
     vajadz_izt = []
     pav_izt = []
     nenot = []
+    leftower = []
+    keys.append("Izteiksme")
     try:
         #Iedala iegūto informāciju pēc izteiksmēm
         for line in input_data:
@@ -28,12 +31,16 @@ def verb_analizer(input_data):
                     pav_izt.append(line)
                 elif line['Izteiksme'] == "Divdabis":
                     divdabis.append(line)
+                else:
+                    leftower.append(line)
             except Exception as inst:
                 pass
     except Exception as inst:
         pass
+
+    #checkbox, lai varētu apskatīt tikai interesējošās izteiksmes un pārējās paslēpt
     try:
-        output = output + """<div class="inside_box">""" #checkbox, lai varētu apskatīt tikai interesējošās izteiksmes un pārējās paslēpt
+        output = output + """<div class="inside_box">"""
         if nenot != []:
             output = output + """<label><input type="checkbox" value="nenot" checked> Nonoteiksme</label><br>"""
         if isten_izt != []:
@@ -48,26 +55,31 @@ def verb_analizer(input_data):
             output = output + """<label><input type="checkbox" value="pav_izt" checked> Pavēles izteiksme</label><br>"""
         if divdabis != []:
             output = output + """<label><input type="checkbox" value="divdabis" checked> Divdabji</label><br>"""
+        if leftower != []:
+            output = output + """<label><input type="checkbox" value="leftower" checked> Citi</label><br>"""
         output = output + """<br></div>"""
     except Exception as inst:
         pass
+    
     #HTML kods katai izteikmei, izsauc nepieciešamās f-jas dažādām izteiksmēm
     try:
         if nenot != []:
             for line in nenot:
                 output = output + """<div class="nenot"><p><b1>Darbības vārds nenoteiksmē: </b1>""" + line['Vārds'] + """</p><br></div>"""
         if isten_izt != []:
-            output = output + """<div class="isten_izt"><p><b1>Darbības vārds īstenības izteiksmē</b1></p>""" + person_analizer.person_analizer(isten_izt) + """<br></div>"""
+            output = output + """<div class="isten_izt"><p><b1>Darbības vārds īstenības izteiksmē</b1></p>""" + person_analizer.person_analizer(isten_izt, keys) + """<br></div>"""
         if atst_izt != []:
-            output = output + """<div class="atst_izt"><p><b1>Darbības vārds atstāstījuma izteiksmē</b1></p>""" + person_analizer.person_analizer(atst_izt) + """<br></div>"""
+            output = output + """<div class="atst_izt"><p><b1>Darbības vārds atstāstījuma izteiksmē</b1></p>""" + person_analizer.person_analizer(atst_izt, keys) + """<br></div>"""
         if vele_izt != []:
-            output = output + """<div class="vele_izt"><p><b1>Darbības vārds vēlējuma izteiksmē</b1></p>""" + person_analizer.person_analizer(vele_izt) + """<br></div>"""
+            output = output + """<div class="vele_izt"><p><b1>Darbības vārds vēlējuma izteiksmē</b1></p>""" + person_analizer.person_analizer(vele_izt, keys) + """<br></div>"""
         if vajadz_izt != []:
-            output = output + """<div class="vajadz_izt"><p><b1>Darbības vārds vajadzības izteiksmē</b1></p>""" + person_analizer.person_analizer(vajadz_izt) + """<br></div>"""
+            output = output + """<div class="vajadz_izt"><p><b1>Darbības vārds vajadzības izteiksmē</b1></p>""" + person_analizer.person_analizer(vajadz_izt, keys) + """<br></div>"""
         if pav_izt != []:
-            output = output + """<div class="pav_izt"><p><b1>Darbības vārds pavēles izteiksmē</b1></p>""" + person_analizer.person_analizer(pav_izt) + """<br></div>"""
+            output = output + """<div class="pav_izt"><p><b1>Darbības vārds pavēles izteiksmē</b1></p>""" + person_analizer.person_analizer(pav_izt, keys) + """<br></div>"""
         if divdabis != []:
-            output = output + """<div class="divdabis"><p><b1>Darbības vārda divdabja formas</b1></p>""" + divdab_analizer.divdab_analizer(divdabis) + """<br></div>"""
+            output = output + """<div class="divdabis"><p><b1>Darbības vārda divdabja formas</b1></p>""" + divdab_analizer.divdab_analizer(divdabis, keys) + """<br></div>"""
+        if leftower != []:
+            output = output + """<div class="leftower"><p><b1>Cita darbības vārda forma</b1></p>""" + person_analizer.person_analizer(leftower, keys) + """<br></div>"""
     except Exception as inst:
         pass
     
