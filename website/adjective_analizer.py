@@ -25,17 +25,19 @@ def adjective_analizer(input_data, keys = ["Vārdšķira"]):
             leftower.append(line)
 
     #Izsauc funkciju, kas apstrādās attiecīgo pakāpi
+    output = output + '<ul class="table_layout">'
     try:
         if pamata != []:
-            output = output + """<div class="inside_box"><p><b1>Pamata pakāpe</b1></p>""" + dzimtes_analizer(pamata, keys) + """</div>"""
+            output = output + """<li><div class="inside_box"><p><b1>Pamata pakāpe</b1></p>""" + dzimtes_analizer(pamata, keys) + """</div></li>"""
         if paraka != []:
-            output = output + """<div class="inside_box"><p><b1>Pārākā pakāpe</b1></p>""" + dzimtes_analizer(paraka, keys) + """</div>"""
+            output = output + """<li><div class="inside_box"><p><b1>Pārākā pakāpe</b1></p>""" + dzimtes_analizer(paraka, keys) + """</div></li>"""
         if visparaka != []:
-            output = output + """<div class="inside_box"><p><b1>Vispārākā pakāpe</b1></p>""" + dzimtes_analizer(visparaka, keys) + """</div>"""
+            output = output + """<li><div class="inside_box"><p><b1>Vispārākā pakāpe</b1></p>""" + dzimtes_analizer(visparaka, keys) + """</div></li>"""
         if leftower != []:
-            output = output + """<div class="inside_box"><p><b1>Pakāpe nepiemīt</b1></p>""" + dzimtes_analizer(leftower, keys) + """</div>"""
+            output = output + """<li><div class="inside_box"><p><b1>Pakāpe nepiemīt</b1></p>""" + dzimtes_analizer(leftower, keys) + """</div></li>"""
     except Exception as inst:
         pass
+    output = output + '</ul>'
     return output
 
 #Funkcija, kas iedala idotos datus pēc dzimtes

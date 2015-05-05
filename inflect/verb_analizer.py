@@ -39,6 +39,7 @@ def verb_analizer(input_data, keys = ["Vārdšķira"]):
         pass
 
     #checkbox, lai varētu apskatīt tikai interesējošās izteiksmes un pārējās paslēpt
+    output = output + '<table><tr><td style="vertical-align:top">'
     try:
         output = output + """<div class="inside_box">"""
         if nenot != []:
@@ -60,6 +61,7 @@ def verb_analizer(input_data, keys = ["Vārdšķira"]):
         output = output + """<br></div>"""
     except Exception as inst:
         pass
+    output = output + '</td><td>'
     
     #HTML kods katai izteikmei, izsauc nepieciešamās f-jas dažādām izteiksmēm
     output = output + '<table>'
@@ -84,5 +86,7 @@ def verb_analizer(input_data, keys = ["Vārdšķira"]):
     except Exception as inst:
         pass
     output = output + '</table>'
+
+    output = output + '</td></tr></table>'
     
     return output

@@ -2,7 +2,7 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>{% block title %}Tezaurs{% endblock %}</title>
+        <title>{% block title %}Tezaurs - vārdu locīšana{% endblock %}</title>
 		<meta charset="utf-8">
         <link rel="stylesheet" href="{% static 'css/template.css' %}">
 		<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
@@ -30,20 +30,20 @@
 			<table>
 				<tr>
 					<td>
-						<h2>Skaidrojošā vārdnīca</h2>
+						<h2>Vārdu locīšana</h2>
 						<!-- Input form -->
-						<form id="input_word" method="post" action="/website/show/">
+						<form id="input_word" method="post" action="/inflect/show/">
 							{% csrf_token %}
 							<!-- Value = word from previous input, if there has bin input word -->
-							<input id="alternative_word" type="hidden" name="word_ID" value="0">
 							<input id="input_word_box" type="text" name="input_word" value="{{ content }}">
-							<input type="submit" name="submit" value="Meklēt" />
+							<input type="submit" name="submit" value="Locīt" />
 						</form>
 					</td>
 				</tr>
 			</table>
 			</div>
 		</div>
+		
 		<div class="content">
 			{% block body_block %}{% endblock %}
 		</div>

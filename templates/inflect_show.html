@@ -1,0 +1,18 @@
+{% extends 'inflect_base.html' %}
+
+<!--Put input word as a part of title of page-->
+{% block title %}Tezaurs: {{ content }}{% endblock %}
+{% block body_block %}
+	
+	<!--word from input-->
+	{% if data == "Saīsinājums" %}
+		<h3>Šis vārds netiek locīts</h3>
+	{% elif data == "Vārds svešvalodā" %}
+		<h3>Šis vārds netiek locīts</h3>
+	{% else %}
+		<h2>Automātiski ģenerēti dati</h2>
+			<!-- Show output form analizet (HTML code) -->
+			{{ automatic_output_data|safe }}
+	{% endif %}
+	
+{% endblock %}

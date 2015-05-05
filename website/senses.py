@@ -11,6 +11,11 @@ def sense(input_data):
         pass
     try:
         if input_data['Gloss']:
+            try:
+                if input_data['SenseID']:
+                    pass
+            except Exception as inst:
+               output = output + """<p>"""
             output = output + input_data['Gloss'] + """</p>"""
     except Exception as inst:
         pass

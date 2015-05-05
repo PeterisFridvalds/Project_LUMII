@@ -6,6 +6,15 @@
 	float: right;
 	padding-right: 10px;
 }
+.menu a
+{
+	text-decoration: none;
+	padding: 10px;
+}
+.menu td
+{
+	background-color: RGB(255,255,200);
+}
 .input_form table
 {
 	margin-left:auto;
@@ -106,4 +115,13 @@ b2
 	font-weight: normal;
 	font-style: normal;
 	font-size: 17px;
+}
+.table_layout
+{
+	list-style-type: none;
+}
+.table_layout li
+{
+	position: relative;
+	float: left;
 }

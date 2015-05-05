@@ -12,7 +12,12 @@ def analizer(input_data):
         pass
     try:
         if input_data['Header']['Pronunciation']:
-            output = output + """ <b1 class="pronunciation">- <b2><b1> Izruna: </b1>""" + input_data['Header']['Pronunciation'] + """</b2></b1>"""
+            pronunciation_out = ' <b1 class="pronunciation">- <b2><b1> Izruna: </b1>'
+            for elem in input_data['Header']['Pronunciation']:
+                pronunciation_out = pronunciation_out + elem + '; '
+            pronunciation_out = pronunciation_out + 'end of pronunciation list'
+            pronunciation_out = pronunciation_out.replace("""; end of pronunciation list""", """</b2></b1>""")
+            output = output + pronunciation_out
     except Exception as inst:
           pass
     output = output + """</h1>"""

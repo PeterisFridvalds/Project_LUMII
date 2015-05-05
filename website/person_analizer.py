@@ -26,13 +26,13 @@ def person_analizer(input_data, keys = []):
         #Pārbauda, vai ir kaut kādi dati, kas atiecas uz attiecīgo laiku, ja tādi ir, izsauc f-ju, kas tālāk apstrādā noteikto laiku
         try:
             if past != []:
-                output = output + """<div class="inside_box"><p><b1>Pagātne:</b1>""" + kartas_analizer(past, keys) + "</div>"
+                output = output + """<li><div class="inside_box"><p><b1>Pagātne:</b1></p>""" + kartas_analizer(past, keys) + "</div></li>"
             if present != []:
-                output = output + """<div class="inside_box"><p><b1>Tagadne:</b1>""" + kartas_analizer(present, keys) + "</div>"
+                output = output + """<li><div class="inside_box"><p><b1>Tagadne:</b1></p>""" + kartas_analizer(present, keys) + "</div></li>"
             if future != []:
-                output = output + """<div class="inside_box"><p><b1>Nākotne:</b1>""" + kartas_analizer(future, keys) + "</div>"
+                output = output + """<li><div class="inside_box"><p><b1>Nākotne:</b1></p>""" + kartas_analizer(future, keys) + "</div></li>"
             if no_time != []:
-                output = output + """<div class="inside_box"><p><b1>Laiks nepiemīt:</b1>""" + kartas_analizer(no_time, keys) + "</div>"
+                output = output + """<li><div class="inside_box"><p><b1>Laiks nepiemīt:</b1></p>""" + kartas_analizer(no_time, keys) + "</div></li>"
         except Exception as inst:
             pass
     except Exception as inst:
@@ -151,7 +151,7 @@ def line_gen(input_data, pers, vsk, dsk, no_sk):
                     output = output + line['Vārds'] + "; "
             except Exception as inst:
                 pass
-            output = output + """</td>"""
+        output = output + """</td>"""
     if dsk == "1":
         output = output + """<td id="loc_tab">"""
         for line in input_data:

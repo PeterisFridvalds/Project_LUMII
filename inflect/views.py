@@ -3,17 +3,8 @@ from django.shortcuts import render_to_response
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from website import search_word
-from website import analizer
+from inflect import search_word
 import json
-
-def home(request):
-    # Get the context from the request
-    context = RequestContext(request)
-
-    # Return a rendered response to send to the client.
-    # Note that the first parameter is the template we wish to use.
-    return render_to_response('index.html', context)
 
 def index(request):
     # Get the context from the request
@@ -21,19 +12,19 @@ def index(request):
 
     # Return a rendered response to send to the client.
     # Note that the first parameter is the template we wish to use.
-    return render_to_response('index.html', context)
+    return render_to_response('inflect_index.html', context)
 
 def redirect_to_show(request):
     # Get the context from the request
     context = RequestContext(request)
-    url = "/website/" + request.POST['input_word'] + "/" + request.POST['word_ID']
+    url = "/inflect/" + request.POST['input_word']
 
     if request.POST['input_word'] == "":
-        return HttpResponseRedirect('/website')
+        return HttpResponseRedirect('/inflect')
     else:
         return HttpResponseRedirect(url)
 
-def show_word(request, input_word, word_ID):
+def show_word(request, input_word):
     # Get the context from the request
     context = RequestContext(request)
     
@@ -51,7 +42,7 @@ def show_word(request, input_word, word_ID):
     # output_data = analizer.analizer(data)
 
     # Function returns word and data for outputing on screen
-    context_dict = search_word.return_centext_dict(json_data, input_word, word_ID)
+    context_dict = search_word.return_centext_dict(json_data, input_word)
 
     # Return a rendered response to send to the client.
-    return render_to_response('show.html', context_dict, context)
+    return render_to_response('inflect_show.html', context_dict, context)

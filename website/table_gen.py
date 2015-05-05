@@ -69,7 +69,7 @@ def table_gen(input_data, keys = []):
                 output = output + """<tr><td><b1>Lokatīvs</b1></td>""" + loc_gen(L, vsk, dsk, no_sk) + """</tr>"""
             if V != []:
                 output = output + """<tr><td><b1>Vokatīvs</b1></td>""" + loc_gen_v(V, vsk, dsk, no_sk) + """</tr>"""
-            output = output + "</table></div>"
+            output = output + "</table><br></div>"
     except Exception as inst:
         pass
 

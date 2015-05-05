@@ -1,9 +1,9 @@
 import requests
 import json
+from inflect import verb_analizer
 from website import unknown_analizer
 from website import noun_analizer
 from website import adjective_analizer
-from website import verb_analizer
 from website import unrecognized_part_of_speech
 
 def phonetic_transcriber(input_word):
@@ -47,7 +47,7 @@ def inflect_analizer(input_data, input_word):
         except Exception as inst:
             pass
         
-        #Sadala vārdus pēc vārdškirām
+        #Iedala vārdus pēc vārdškirām
         try:
             for line in elem:
                 if line['Vārdšķira'] == "Lietvārds":
