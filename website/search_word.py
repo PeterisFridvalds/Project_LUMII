@@ -49,8 +49,24 @@ def return_centext_dict(input_data, word, homonim_id):
         try:
             if i['Header']['Lemma'] == word:
                 if homonim_id == "0":
+                    for flag in i['Header']['Gram']['Flags']:
+                        try:
+                            if flag == 'Saīsinājums':
+                                return {'content':word, 'data':input_data, 'output_data':analizer.analizer(i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word, "neloka"), 'hom_id':i['ID']}
+                            if flag == 'Vārds svešvalodā':
+                                return {'content':word, 'data':input_data, 'output_data':analizer.analizer(i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word, "neloka"), 'hom_id':i['ID']}
+                        except Exception as inst:
+                            pass
                     return {'content':word, 'data':input_data, 'output_data':analizer.analizer(i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word), 'hom_id':i['ID']}
                 if homonim_id == i['ID']:
+                    for flag in i['Header']['Gram']['Flags']:
+                        try:
+                            if flag == 'Saīsinājums':
+                                return {'content':word, 'data':input_data, 'output_data':analizer.analizer(i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word, "neloka"), 'hom_id':i['ID']}
+                            if flag == 'Vārds svešvalodā':
+                                return {'content':word, 'data':input_data, 'output_data':analizer.analizer(i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word, "neloka"), 'hom_id':i['ID']}
+                        except Exception as inst:
+                            pass
                     return {'content':word, 'data':input_data, 'output_data':analizer.analizer(i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word), 'hom_id':i['ID']}
         except Exception as inst:
             pass
@@ -60,8 +76,24 @@ def return_centext_dict(input_data, word, homonim_id):
                 for k in i['Header']['Gram']['AltLemmas'][p]:
                     if k['Lemma'].upper() == word.upper():
                         if homonim_id == "0":
+                            for flag in k['Flags']:
+                                try:
+                                    if flag == 'Saīsinājums':
+                                        return {'content':word, 'data':input_data, 'output_data':analizer.AltLemmas(k, i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word, "neloka"), 'hom_id':i['ID']}
+                                    if flag == 'Vārds svešvalodā':
+                                        return {'content':word, 'data':input_data, 'output_data':analizer.AltLemmas(k, i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word, "neloka"), 'hom_id':i['ID']}
+                                except Exception as inst:
+                                    pass
                             return {'content':word, 'data':input_data, 'output_data':analizer.AltLemmas(k, i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word), 'hom_id':i['ID']}
                         if homonim_id == i['ID']:
+                            for flag in k['Flags']:
+                                try:
+                                    if flag == 'Saīsinājums':
+                                        return {'content':word, 'data':input_data, 'output_data':analizer.AltLemmas(k, i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word, "neloka"), 'hom_id':i['ID']}
+                                    if flag == 'Vārds svešvalodā':
+                                        return {'content':word, 'data':input_data, 'output_data':analizer.AltLemmas(k, i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word, "neloka"), 'hom_id':i['ID']}
+                                except Exception as inst:
+                                    pass
                             return {'content':word, 'data':input_data, 'output_data':analizer.AltLemmas(k, i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word), 'hom_id':i['ID']}
         except Exception as inst:
             pass
@@ -70,8 +102,24 @@ def return_centext_dict(input_data, word, homonim_id):
             for d in i['Derivatives']:
                 if d['Header']['Lemma'].upper() == word.upper():
                     if homonim_id == "0":
+                        for flag in d['Header']['Gram']['Flags']:
+                            try:
+                                if flag == 'Saīsinājums':
+                                    return {'content':word, 'data':input_data, 'output_data':analizer.Derivatives(d, i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word, "neloka"), 'hom_id':i['ID']}
+                                if flag == 'Vārds svešvalodā':
+                                    return {'content':word, 'data':input_data, 'output_data':analizer.Derivatives(d, i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word, "neloka"), 'hom_id':i['ID']}
+                            except Exception as inst:
+                                pass
                         return {'content':word, 'data':input_data, 'output_data':analizer.Derivatives(d, i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word), 'hom_id':i['ID']}
                     if homonim_id == i['ID']:
+                        for flag in d['Header']['Gram']['Flags']:
+                            try:
+                                if flag == 'Saīsinājums':
+                                    return {'content':word, 'data':input_data, 'output_data':analizer.Derivatives(d, i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word, "neloka"), 'hom_id':i['ID']}
+                                if flag == 'Vārds svešvalodā':
+                                    return {'content':word, 'data':input_data, 'output_data':analizer.Derivatives(d, i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word, "neloka"), 'hom_id':i['ID']}
+                            except Exception as inst:
+                                pass
                         return {'content':word, 'data':input_data, 'output_data':analizer.Derivatives(d, i), 'AltLemmas_out':AltLemmas_out, 'automatic_output_data':get_from_page.inflect_word(word), 'hom_id':i['ID']}
         except Exception as inst:
             pass

@@ -66,7 +66,7 @@ def return_centext_dict(input_data, word):
         try:
             for d in i['Derivatives']:
                 if d['Header']['Lemma'].upper() == word.upper():
-                    for flag in i['Header']['Gram']['Flags']:
+                    for flag in d['Header']['Gram']['Flags']:
                         try:
                             if flag == 'Saīsinājums':
                                 return {'content':word, 'data':"Saīsinājums"}

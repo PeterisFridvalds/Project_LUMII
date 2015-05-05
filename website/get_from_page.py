@@ -15,15 +15,18 @@ def phonetic_transcriber(input_word):
         phonetic_word = "Vārda izruna netiek ģenerēta!"
     return phonetic_word
 
-def inflect_word(input_word):
+def inflect_word(input_word, locit = "loka"):
     url = 'http://ezis.ailab.lv:8182/inflect/json/lv/' + input_word
     retuned_element = requests.get(url)
     infleted_word = json.loads(retuned_element.text)
-    return inflect_analizer(infleted_word, input_word)
+    return inflect_analizer(infleted_word, input_word, locit)
 
-def inflect_analizer(input_data, input_word):
+def inflect_analizer(input_data, input_word, locit):
     output = ""
     output = """<p class="pronunciation"><b1>Izruna: </b1>""" + phonetic_transcriber(input_word) + """</p><br>"""
+    if locit == "neloka":
+        output = output + 'Šis vārds netiek locīts!'
+        return output
     vardskira = ""
     auto_gen = "nav"
     noun = []
