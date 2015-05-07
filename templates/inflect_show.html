@@ -5,14 +5,8 @@
 {% block body_block %}
 	
 	<!--word from input-->
-	{% if data == "Saīsinājums" %}
-		<h3>Šis vārds netiek locīts</h3>
-	{% elif data == "Vārds svešvalodā" %}
-		<h3>Šis vārds netiek locīts</h3>
-	{% else %}
-		<h2>Automātiski ģenerēti dati</h2>
-			<!-- Show output form analizet (HTML code) -->
-			{{ automatic_output_data|safe }}
-	{% endif %}
+	<h2>Automātiski ģenerēti dati</h2>
+		<!-- Show output form analizet (HTML code) -->
+		{{ automatic_output_data|safe }}
 	
 {% endblock %}

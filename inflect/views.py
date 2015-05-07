@@ -29,20 +29,27 @@ def show_word(request, input_word):
     context = RequestContext(request)
     
     # open file and read from it
-    with open('tezaurs-full.json', encoding='utf-8') as f:
+    try:
+        with open('tezaurs-full.json', encoding='utf-8') as f:
         # transfer json elements to python elements
-        document = json.load(f)
+            try:
+                document = json.load(f)
+            except Exception as inst:
+                document = []
+    except Exception as inst:
+        document = []
 
     # data get result from search function
     # Search function looks for input word in document(variable, wich contains jason converted to python)
     data = search_word.search_word(document, input_word)
     json_data = data['output']
+    speach_id = data['speach_id']
 
     # Calls analizer function
     # output_data = analizer.analizer(data)
 
     # Function returns word and data for outputing on screen
-    context_dict = search_word.return_centext_dict(json_data, input_word)
+    context_dict = search_word.return_centext_dict(json_data, input_word, speach_id)
 
     # Return a rendered response to send to the client.
     return render_to_response('inflect_show.html', context_dict, context)

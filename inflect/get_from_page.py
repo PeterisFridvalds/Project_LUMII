@@ -1,5 +1,6 @@
 import requests
 import json
+from website import speach_service
 from inflect import verb_analizer
 from website import unknown_analizer
 from website import noun_analizer
@@ -15,15 +16,28 @@ def phonetic_transcriber(input_word):
         phonetic_word = "Vārda izruna netiek ģenerēta!"
     return phonetic_word
 
-def inflect_word(input_word):
+def inflect_word(input_word, speach_id, locit = True, runa = True):
     url = 'http://ezis.ailab.lv:8182/inflect/json/lv/' + input_word
     retuned_element = requests.get(url)
     infleted_word = json.loads(retuned_element.text)
-    return inflect_analizer(infleted_word, input_word)
+    return inflect_analizer(infleted_word, input_word, locit, runa, speach_id)
 
-def inflect_analizer(input_data, input_word):
+def inflect_analizer(input_data, input_word, locit, runa, speach_id):
     output = ""
-    output = """<p class="pronunciation"><b1>Izruna: </b1>""" + phonetic_transcriber(input_word) + """</p><br>"""
+    phonetic_word = phonetic_transcriber(input_word)
+    if phonetic_word != "Vārda izruna netiek ģenerēta!":
+        output = """<p class="pronunciation"><b1>Izruna: </b1>""" + phonetic_word + """</p><br>"""
+    else:
+        output = phonetic_word
+    if runa == True:
+        if speach_id != '-999':
+            try:
+                output = output + speach_service.return_link(speach_id)
+            except Exception as inst:
+                pass
+    if locit != True:
+        output = output + 'Šis vārds netiek locīts!'
+        return output
     vardskira = ""
     auto_gen = "nav"
     noun = []
@@ -47,7 +61,7 @@ def inflect_analizer(input_data, input_word):
         except Exception as inst:
             pass
         
-        #Iedala vārdus pēc vārdškirām
+        #Sadala vārdus pēc vārdškirām
         try:
             for line in elem:
                 if line['Vārdšķira'] == "Lietvārds":
