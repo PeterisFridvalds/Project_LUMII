@@ -7,6 +7,22 @@ from website import search_word
 from website import analizer
 import json
 
+def document_init(): # Function that returns python data loded fom json
+    global document
+    document = []
+    if document == []:
+        # open file and read from it
+        try:
+            with open('tezaurs-full.json', encoding='utf-8') as f:
+                # transfer json elements to python elements
+                try:
+                    document = json.load(f)
+                except Exception as inst:
+                    document = []
+        except Exception as inst:
+            document = []
+    return document
+
 def home(request):
     # Get the context from the request
     context = RequestContext(request)
@@ -39,14 +55,9 @@ def show_word(request, input_word, word_ID):
     
     # open file and read from it
     try:
-        with open('tezaurs-full.json', encoding='utf-8') as f:
-        # transfer json elements to python elements
-            try:
-                document = json.load(f)
-            except Exception as inst:
-                document = []
+        document
     except Exception as inst:
-        document = []
+        document = document_init
 
     # data get result from search function
     # Search function looks for input word in document(variable, wich contains jason converted to python)

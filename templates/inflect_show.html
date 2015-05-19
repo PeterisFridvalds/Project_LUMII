@@ -2,6 +2,16 @@
 
 <!--Put input word as a part of title of page-->
 {% block title %}Tezaurs: {{ content }}{% endblock %}
+
+<!--Menu bar-->
+{% block menu_bar %}
+	<ul class="nav nav-tabs">
+		<li><a href="/">Sākums</a></li>
+		<li class="active"><a href="/inflect/">Locījumi</a></li>
+		<li><a href="/user/login/">Pieslēgties</a></li>
+	</ul>
+{% endblock %}
+
 {% block body_block %}
 	
 	<!--word from input-->
