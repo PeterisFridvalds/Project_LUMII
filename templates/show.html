@@ -1,112 +1,72 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 
-<!--Put input word as a part of title of page-->
-{% block title %}Tezaurs: {{ content }}{% endblock %}
+{% block title %}Tezaurs{% endblock %}
+
+<!-- Izvēlne -->
+{% block menu_bar %}
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="/">Sākums</a></li>
+		<li><a href="/inflect/">Locījumi</a></li>
+		<li><a href="/user/login/">Pieslēgties</a></li>
+	</ul>
+{% endblock %}
+
 {% block body_block %}
 	
-	<!--word from input-->
-	{% if data == "No such word" %}
-		<table>
-			<tr>
-				<td style="vertical-align:top;"><h3>Vārds netika atrasts!</h3></td>
-				<td style="min-width:100px"></td>
-				<td>
-					<h2>Automātiski ģenerēti dati</h2>
-					<!-- Show output form analizet (HTML code) -->
-					{{ automatic_output_data|safe }}
-				</td>
-			</tr>
-		</table>
-	{% elif data == "No input word" %}
-		<<h2 style="color:red;">Vārds netika ievadīts!</h2>
-	{% else %} 
-		<table>
-			<tr>
-				<td class="list_of_elem" id="left_side_menu">
-					<p>Rādīt:</p>
-					<div style="padding-left:5px;">
-						<label><input type="checkbox" value="pronunciation" checked> Izruna</label><br>
-						<label><input type="checkbox" value="grammer" checked> Gramatiku</label><br>
-						<label><input type="checkbox" value="subsenses" checked> Apakšnozīmes</label><br>
-						<label><input type="checkbox" value="examples" checked> Piemērus</label><br>
-						<label><input type="checkbox" value="phrases" checked> Frazeoliģismus</label><br>
-						<label><input type="checkbox" value="sources" checked> Avotus</label><br>
-						<label><input type="checkbox" value="auto_data" checked> Automātiski ģenerēti dati</label><br>
-						<label><input type="checkbox" value="inflect" checked> Locījumi</label><br>
+	<h3 style="width:100%; text-align:center; padding-bottom:0px; margin-bottom:0px;">Skaidrojošā vārdnīca</h3>
+	<!-- Ievadforma -->
+	<div class="center" style="width:225px; padding-top:5px;">
+		<form class="form-horizontal" method="post" action="/tezaurs/show/"> {% csrf_token %}
+			<input id="word_ID" type="hidden" name="word_ID" value="0">
+			<div class="form-group">
+				<div class="col-sm-10">
+					<input type="text" style="text-align:center;" class="form-control" id="input_word" name="input_word" placeholder="Meklējamais vārds" required="required" value="{{ content }}">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="center" style="width:100px; padding-left:15px;">
+						<button type="submit" style="text-align:center;" class="btn btn-default">Meklēt</button>
 					</div>
-					<ul>
-					{% for i in data %}
-						<li>
-							<form id="input_form" method="post" action="/website/show/">
-								{% csrf_token %}
-								<!-- Renders the same page for alternative word -->
-								<input type="hidden" name="word_ID" value="{{ i.ID }}">
-								<input type="hidden" name="input_word" value="{{ i.Header.Lemma }}">
-								{% if i.Header.Lemma == content %}
-									{% if i.ID == hom_id %}
-										<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" value="{{ i.Header.Lemma }}">
-									{% else %}
-										<input id="alternative_word" type="submit" value="{{ i.Header.Lemma }}">
-									{% endif %}
-								{% else %}
-									<input id="alternative_word" type="submit" value="{{ i.Header.Lemma }}">
-								{% endif %}
-							</form>
-						</li>
-						{% for alt in AltLemmas_out %}
-							{% if alt.lemma == i.Header.Lemma %}
-							<li class="inside_box">
-								<form id="input_word" method="post" action="/website/show/">
-									{% csrf_token %}
-									<!-- Renders the same page for alternative word -->
-									<input type="hidden" name="word_ID" value="{{ i.ID }}">
-									<input type="hidden" name="input_word" value="{{ alt.altLemma }}">
-									{% if alt == content %}
-										{% if i.ID == hom_id %}
-											<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" value="{{ alt.altLemma }}">
-										{% else %}
-											<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" value="{{ alt.altLemma }}">
-										{% endif %}
-									{% else %}
-										<input id="alternative_word" type="submit" value="{{ alt.altLemma }}">
-									{% endif %}
-								</form>
-							</li>
-							{% endif %}
-						{% endfor %}
-						{% for d in i.Derivatives %}
-							<li class="inside_box">
-							<form id="input_word" method="post" action="/website/show/">
-								{% csrf_token %}
-								<!-- Renders the same page for alternative word -->
-								<input type="hidden" name="word_ID" value="{{ i.ID }}">
-								<input type="hidden" name="input_word" value="{{ d.Header.Lemma }}">
-								{% if d.Header.Lemma == content %}
-									{% if i.ID == hom_id %}
-										<input style="font-weight:bold; font-style:italic;" id="alternative_word" type="submit" value="{{ d.Header.Lemma }}">
-									{% else %}
-										<input id="alternative_word" type="submit" value="{{ d.Header.Lemma }}">
-									{% endif %}
-								{% else %}
-									<input id="alternative_word" type="submit" value="{{ d.Header.Lemma }}">
-								{% endif %}
-							</form>
-						</li>
-						{% endfor %}
-					{% endfor %}
-					</ul>
-				</td>
-				<td style="vertical-align:top;">
-					<!-- Show output form analizet (HTML code) -->
-					{{ output_data|safe }}
-				</td>
-				<td class="auto_data" style="vertical-align:top;">
-					<h2>Automātiski ģenerēti dati</h2>
-					<!-- Show output form analizet (HTML code) -->
-					{{ automatic_output_data|safe }}
-				</td>
-			</tr>
-		</table>
-	{% endif %}
+				</div>
+			</div>
+		</form>
+	</div>
+	<br>
+	
+	<table><tr style="vertical-align:top;">
+		{% if word_list %}
+			<td style="min-width: 200px; padding-left: 15px;">
+				<h5>Rādīt/paslēpt:</h5>
+					<div style="padding-left:5px;">
+						<label><input type="checkbox" value="pronunciation" checked> Izruna</label>
+						<label><input type="checkbox" value="grammer" checked> Gramatiku</label>
+						<label><input type="checkbox" value="subsenses" checked> Apakšnozīmes</label>
+						<label><input type="checkbox" value="examples" checked> Piemērus</label>
+						<label><input type="checkbox" value="phrases" checked> Frazeoliģismus</label>
+						<label><input type="checkbox" value="sources" checked> Avotus</label>
+						<label><input type="checkbox" value="auto_data" checked> Automātiski ģenerēti dati</label>
+						<label><input type="checkbox" value="inflect" checked> Locījumi</label>
+					</div>
+				<br>
+				<!-- Atrasto vārdu saraksts -->
+				<h5>Atrastie vārdi:</h5>
+				<ul>
+				{% for word in word_list %}
+					<li><a href="/tezaurs/{{word.Lemma}}/{{word.ID}}"> {{ word.Lemma }} </a></li>
+				{% endfor %}
+				</ul>
+			</td>
+		{% endif %}
+		<td style="min-width: 300px;">
+			<!-- Analizēti atrastie tezaur dati -->
+			{{ output_data|safe }}
+		</td>
+		<td class="auto_data" style="min-width: 300px;">
+			<h4>Automātiski ģenerēti dati</h4>
+				<!-- automātiski ģenerētie locīšanas dati -->
+				{{ automatic_output_data|safe }}
+		</td>
+	</tr></table>
 	
 {% endblock %}

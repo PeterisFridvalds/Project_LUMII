@@ -1,0 +1,14 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}Tezaurs{% endblock %}
+
+{% block body_block %}
+	
+	<h1>Dati saglabāti datu bāzē!</h1>
+	<p>Fails: {{ nolas }}</p>
+	<p>Dati: </p>
+	{% for line in radit %}
+		<p>{{ line }}</p>
+	{% endfor%}
+	
+{% endblock %}

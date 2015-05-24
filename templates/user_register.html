@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Pieslēgšanās{% endblock %}
+
+{% block menu_bar %}
+	<ul class="nav nav-tabs">
+		<li><a href="/">Sākums</a></li>
+		<li><a href="/inflect/">Locījumi</a></li>
+		<li class="active"><a href="/user/register/">Reģistēt lietotāju</a></li>
+		<li><a href="/user/logout/"> Atslēgties </a></li>
+	</ul>
+{% endblock %}
+
+{% block body_block %}
+	
+	<h3 style="width:100%; text-align:center; padding-bottom:0px; margin-bottom:0px;">Jauna lietotāja reģistrēšana</h3>
+	<div class="center" style="width:225px; padding-top:50px;">
+		<form class="form-horizontal" method="post" action="/user/register/">
+			{% csrf_token %}
+			<div class="form-group">
+				<div class="col-sm-10">
+					<input type="text" style="text-align:center;" class="form-control" id="username id_username" maxlength="30" name="username" placeholder="Lietotējvārds *" required="required">
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<div class="col-sm-10">
+					<input type="password" style="text-align:center;" class="form-control" id="password id_password1" name="password1" placeholder="Parole *" required="required">
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<div class="col-sm-10">
+					<input type="password" style="text-align:center;" class="form-control" id="password_again id_password2" name="password2" placeholder="Parole atkārtoti *" required="required">
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="center" style="width:100px;">
+						<button type="submit" class="btn btn-default">Reģistrēt</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	
+{% endblock %}

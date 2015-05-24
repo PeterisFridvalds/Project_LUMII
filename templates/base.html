@@ -1,56 +1,39 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html>
-    <head>
-        <title>{% block title %}Tezaurs{% endblock %}</title>
+	<head>
+		<title>{% block title %}Tezaurs{% endblock %}</title>
 		<meta charset="utf-8">
-        <link rel="stylesheet" href="{% static 'css/template.css' %}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap-responsive.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap-responsive.css' %}">
+		<link rel="stylesheet" href="{% static 'css/template.css' %}">
 		<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+		<script src="{% static 'javascript/bootstrap.min.js' %}"></script>
+		<script src="{% static 'javascript/bootstrap.js' %}"></script>
 		<script src="{% static 'javascript/template.js' %}"></script>
-    </head>
+	</head>
 	
-	
-	
-    <body>
+	<body>
 		<!--Menu bar-->
-		<div class="menu">
-			<table>
-				<tr>
-					<td><a href="/website/"> Skaidrojošā vārdnīca </a></td>
-					<td><a href="/inflect/"> Vārdu locīšana </a></td>
-				</tr>
-			</table>
-		</div>
+		{% block menu_bar %}
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="/">Sākums</a></li>
+				<li><a href="/inflect/">Locījumi</a></li>
+				<li><a href="/user/login/">Pieslēgties</a></li>
+			</ul>
+		{% endblock %}
 		
 		<!-- Main body, using templates to make body block -->
-		<div>
-			<!-- AILab logo (no background) -->
-			<img id="logo" src="{% static 'img/AILab-logo10-2-bez-fona.svg' %}">
-			<div class="input_form">
-			<table>
-				<tr>
-					<td>
-						<h2>Skaidrojošā vārdnīca</h2>
-						<!-- Input form -->
-						<form id="input_word" method="post" action="/website/show/">
-							{% csrf_token %}
-							<!-- Value = word from previous input, if there has bin input word -->
-							<input id="alternative_word" type="hidden" name="word_ID" value="0">
-							<input id="input_word_box" type="text" name="input_word" value="{{ content }}">
-							<input type="submit" name="submit" value="Meklēt" />
-						</form>
-					</td>
-				</tr>
-			</table>
-			</div>
-		</div>
 		<div class="content">
 			{% block body_block %}{% endblock %}
 		</div>
+		<br><br>
 		
 		<!--Footer-->
-		<div class="footer" style="padding-top: 25px;">
-            <p>Tezaurs &copy;</p>
-        </div>
-    </body>
+		<div class="footer" style="text-align: center; border: solid 1px; position: fixed; bottom: 0px; width: 100%; background-color: white;">
+			<p>Latvija Universiātes Datorikas fakultātes 2.kursa studenta Pētera Fridvalda kvalifikācijas darbs, Rīga 2015 &copy;</p>
+		</div>
+	</body>
 </html>

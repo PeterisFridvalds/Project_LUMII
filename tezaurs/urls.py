@@ -1,13 +1,10 @@
-from django.conf.urls import patterns, include, url
-from django.contrib import admin
+from django.conf.urls import patterns, url
+from tezaurs import views
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'tezaurs.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
-    url(r'^$', 'website.views.home', name='home'),
-    url(r'^website/', include('website.urls')),
-    url(r'^inflect/', include('inflect.urls')),
-    url(r'^admin/', include(admin.site.urls)),
-)
+        url(r'^$', views.home, name='home'),
+        url(r'^saglab_db/', views.add_to_db, name='add_to_db'),
+        url(r'^show_db/', views.show, name='show'),
+        url(r'^show/', views.redirect_to_show, name='redirect_to_show'),
+        url(r'^(?P<input_word>\w+)/(?P<word_ID>[0-9]+)', views.show_word, name='show_word'),
+                       )

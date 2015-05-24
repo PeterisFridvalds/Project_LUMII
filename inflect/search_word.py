@@ -10,7 +10,7 @@ def search_word(input_data, word):
     try:
         for i in input_data:
             try:
-                if i['Lemma'].upper() == word.upper():
+                if i[u'Lemma'].upper() == word.upper():
                     output.append(i)
             except Exception as inst:
                 pass
@@ -27,7 +27,7 @@ def return_centext_dict(input_data, word, speach_id):
     # Looking for flags, wich don't need to infelct
     for i in input_data:
         try:
-            if i['Lemma'] == word:
+            if i[u'Lemma'] == word:
                 return {'content':word, 'automatic_output_data':get_from_page.inflect_word(word, speach_id, False, False)}
         except Exception as inst:
             pass

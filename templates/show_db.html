@@ -1,0 +1,20 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}Tezaurs{% endblock %}
+
+<!--Menu bar-->
+{% block menu_bar %}
+	<ul class="nav nav-tabs">
+		<li><a href="/">Sākums</a></li>
+		<li><a href="/inflect/">Locījumi</a></li>
+		<li><a href="/user/login/">Pieslēgties</a></li>
+	</ul>
+{% endblock %}
+
+{% block body_block %}
+	
+	{% for lem in data_list %}
+		<p>{{ lem }}</p>
+	{% endfor %}
+	
+{% endblock %}

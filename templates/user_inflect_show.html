@@ -1,0 +1,43 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}Tezaurs{% endblock %}
+
+<!--Menu bar-->
+{% block menu_bar %}
+	<ul class="nav nav-tabs">
+		<li><a href="/">Sākums</a></li>
+		<li class="active"><a href="/inflect/">Locījumi</a></li>
+		<li><a href="/user/register/">Reģistēt lietotāju</a></li>
+		<li><a href="/user/logout/"> Atslēgties </a></li>
+	</ul>
+{% endblock %}
+
+{% block body_block %}
+	
+	<h3 style="width:100%; text-align:center; padding-bottom:0px; margin-bottom:0px;">Vārdu locīšana</h3>
+	<!-- Ievadforma -->
+	<div class="center" style="width:225px; padding-top:5px;">
+		<form class="form-horizontal" method="post" action="/inflect/show/"> {% csrf_token %}
+			<div class="form-group">
+				<div class="col-sm-10">
+					<input type="text" style="text-align:center;" class="form-control" id="input_word" name="input_word" placeholder="Meklējamais vārds" required="required" value="{{ content }}">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="center" style="width:100px; padding-left:15px;">
+						<button type="submit" style="text-align:center;" class="btn btn-default">Meklēt</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<br>
+	
+	<div style="padding-left:15px;">
+		<h4>Automātiski ģenerēti dati</h4>
+			<!-- Show output form analizet (HTML code) -->
+			{{ automatic_output_data|safe }}
+	<div>
+	
+{% endblock %}

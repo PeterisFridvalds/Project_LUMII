@@ -1,0 +1,73 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}Tezaurs{% endblock %}
+
+<!--Menu bar-->
+{% block menu_bar %}
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="/">Sākums</a></li>
+		<li><a href="/inflect/">Locījumi</a></li>
+		<li><a href="/user/register/">Reģistēt lietotāju</a></li>
+		<li><a href="/user/logout/"> Atslēgties </a></li>
+	</ul>
+{% endblock %}
+
+{% block body_block %}
+	
+	<h3 style="width:100%; text-align:center; padding-bottom:0px; margin-bottom:0px;">Skaidrojošā vārdnīca</h3>
+	<!-- Ievadforma -->
+	<div class="center" style="width:225px; padding-top:5px;">
+		<form class="form-horizontal" method="post" action="/tezaurs/show/"> {% csrf_token %}
+			<input id="word_ID" type="hidden" name="word_ID" value="0">
+			<div class="form-group">
+				<div class="col-sm-10">
+					<input type="text" style="text-align:center;" class="form-control" id="input_word" name="input_word" placeholder="Meklējamais vārds" required="required" value="{{ content }}">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="center" style="width:100px; padding-left:15px;">
+						<button type="submit" style="text-align:center;" class="btn btn-default">Meklēt</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<br>
+	
+	<table><tr style="vertical-align:top;">
+		{% if word_list %}
+			<td style="min-width: 200px; padding-left: 15px;">
+				<h5>Rādīt/paslēpt:</h5>
+					<div style="padding-left:5px;">
+						<label><input type="checkbox" value="pronunciation" checked> Izruna</label>
+						<label><input type="checkbox" value="grammer" checked> Gramatiku</label>
+						<label><input type="checkbox" value="subsenses" checked> Apakšnozīmes</label>
+						<label><input type="checkbox" value="examples" checked> Piemērus</label>
+						<label><input type="checkbox" value="phrases" checked> Frazeoliģismus</label>
+						<label><input type="checkbox" value="sources" checked> Avotus</label>
+						<label><input type="checkbox" value="auto_data" checked> Automātiski ģenerēti dati</label>
+						<label><input type="checkbox" value="inflect" checked> Locījumi</label>
+					</div>
+				<br>
+				<!-- Atrasto vārdu saraksts -->
+				<h5>Atrastie vārdi:</h5>
+				<ul>
+				{% for word in word_list %}
+					<li><a href="/tezaurs/{{word.Lemma}}/{{word.ID}}"> {{ word.Lemma }} </a></li>
+				{% endfor %}
+				</ul>
+			</td>
+		{% endif %}
+		<td style="min-width: 300px;">
+			<!-- Analizēti atrastie tezaur dati -->
+			{{ output_data|safe }}
+		</td>
+		<td class="auto_data" style="min-width: 300px;">
+			<h4>Automātiski ģenerēti dati</h4>
+				<!-- automātiski ģenerētie locīšanas dati -->
+				{{ automatic_output_data|safe }}
+		</td>
+	</tr></table>
+	
+{% endblock %}

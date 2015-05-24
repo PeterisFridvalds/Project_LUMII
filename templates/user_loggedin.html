@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+<!--Put input word as a part of title of page-->
+{% block title %}Ielogošanās{% endblock %}
+
+{% block menu_bar %}
+	<ul class="nav nav-tabs">
+		<li><a href="/">Sākums</a></li>
+		<li><a href="/inflect/">Locījumi</a></li>
+		<li><a href="/user/register/">Reģistēt lietotāju</a></li>
+		<li><a href="/user/logout/"> Atslēgties </a></li>
+	</ul>
+{% endblock %}
+
+{% block body_block %}
+	
+	<p>Esi ielogojies {{user_name}}</p>
+	
+{% endblock %}

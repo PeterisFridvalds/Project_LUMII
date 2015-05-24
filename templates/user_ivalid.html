@@ -1,0 +1,45 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}Tezaurs{% endblock %}
+
+{% block menu_bar %}
+	<ul class="nav nav-tabs">
+		<li><a href="/">Sākums</a></li>
+		<li><a href="/inflect/">Locījumi</a></li>
+		<li class="active"><a href="/user/login">Ielogoties</a></li>
+	</ul>
+{% endblock %}
+
+{% block body_block %}
+	
+	{% if form.errors %}
+		<p class="error">Atvainojiet, lietotājvārds vai parole nav pareiza</p>
+	{% endif %}
+	
+	<p class="error">Atvainojiet, lietotājvārds vai parole nav pareiza</p>
+	
+	<div class="center" style="width:225px; padding-top:50px;">
+		<form class="form-horizontal" method="post" action="/user/login/post"> {% csrf_token %}
+			<div class="form-group">
+				<div class="col-sm-10">
+					<input type="text" style="text-align:center;" class="form-control" id="username" name="username" placeholder="Lietotējvārds" value="{{username_prev}}">
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<div class="col-sm-10">
+					<input type="password" style="text-align:center;" class="form-control" id="password" name="password" placeholder="Parole">
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="center" style="width:100px;">
+						<button type="submit" style="text-align:center;" class="btn btn-default">Pieslēgties</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	
+{% endblock %}
