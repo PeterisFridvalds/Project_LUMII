@@ -12,11 +12,7 @@
 
 {% block body_block %}
 	
-	{% if form.errors %}
-		<p class="error">Atvainojiet, lietotājvārds vai parole nav pareiza</p>
-	{% endif %}
-	
-	<p class="error">Atvainojiet, lietotājvārds vai parole nav pareiza</p>
+	<p class="error" style="text-align:center;">Lietotājvārds un/vai parole nav pareiza!</p>
 	
 	<div class="center" style="width:225px; padding-top:50px;">
 		<form class="form-horizontal" method="post" action="/user/login/post"> {% csrf_token %}

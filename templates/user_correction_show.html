@@ -15,11 +15,20 @@
 
 {% block body_block %}
 	
-	<h1>Dati saglabāti datu bāzē!</h1>
-	<p>Fails: {{ nolas }}</p>
-	<p>Dati: </p>
-	{% for line in radit %}
-		<p>{{ line }}</p>
-	{% endfor%}
+	<div style="padding-left:15px;">
+		{% if data_list == "no_correction" %}
+			<p>Pašlaik nav eviena labojuma!</p>
+		{% else %}
+			{% for line in data_list %}
+				<p>Lemma: {{ line.Lemma }}</p>
+				<p>ID: {{ line.ID }}</p>
+				<p>Ieteikumi: </p>
+				{% for ieteik in line.info %}
+					<p style="padding-left:15px;"> {{ ieteik }} </p>
+				{% endfor %}
+				<br>
+			{% endfor %}
+		{% endif %}
+	</div>
 	
 {% endblock %}

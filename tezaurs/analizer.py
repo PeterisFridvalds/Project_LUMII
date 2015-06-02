@@ -57,7 +57,7 @@ def analizer(input_data):
         if input_data[u'Sources']:
             output = output + u'<div class="sources"><p id="top_of_list"><b1>Avoti:</b1></p>'
             for source in input_data[u'Sources']:
-                output = output + u'<p class="inside_box">' + source + u'</p>'
+                output = output + u'<p class="inside_box"><a href="http://tezaurs.lv/sv/avoti.pdf">' + source + u'</a></p>'
             output = output + u'</div>'
     except Exception as inst:
         pass

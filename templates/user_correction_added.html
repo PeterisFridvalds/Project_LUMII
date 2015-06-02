@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 
-<!--Put input word as a part of title of page-->
-{% block title %}Ielogošanās{% endblock %}
+{% block title %}Tezaurs{% endblock %}
 
+<!--Menu bar-->
 {% block menu_bar %}
 	<ul class="nav nav-tabs">
 		<li><a href="/">Sākums</a></li>
@@ -15,7 +15,6 @@
 
 {% block body_block %}
 	
-	<p style="text-align:center;"> {{ user_register }} </p><br><br>
-	<p style="text-align:center;">Jūs esat ielogojies ar lietotājvārdu "{{user_name}}"</p>
+	<h4 style="width:100%; text-align:center; padding-bottom:0px; margin-bottom:0px;">Paldies, jūsu ieteikums ir pievienots datu bāzei</h4>
 	
 {% endblock %}

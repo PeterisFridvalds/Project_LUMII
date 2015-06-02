@@ -19,4 +19,5 @@ urlpatterns = patterns('',
     url(r'^tezaurs/', include('tezaurs.urls')),
     url(r'^inflect/', include('inflect.urls')),
     url(r'^user/', include('tez_users.urls')),
+    url(r'^db/', include('tez_db.urls')),
 )

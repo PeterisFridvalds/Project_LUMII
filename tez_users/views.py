@@ -40,14 +40,19 @@ def logout(request):
 
 def loggedin(request):
     context = RequestContext(request)
+    context_dict = {'user_name': request.user.username}
     if not request.user.is_authenticated():
         return HttpResponseRedirect('/user/login/', context)
     else:
-        return render_to_response('user_loggedin.html', {'user_name': request.user.username}, context)
+        return render_to_response('user_loggedin.html', context_dict, context)
 
 def ivalid(request):
     context = RequestContext(request)
     return render_to_response('user_ivalid.html', context)
+
+def ivalid_register(request):
+    context = RequestContext(request)
+    return render_to_response('user_ivalid_register.html', context)
 
 def register(request):
     context = RequestContext(request)
@@ -56,47 +61,18 @@ def register(request):
             form = UserCreationForm(request.POST)
             if form.is_valid():
                 new_user = form.save()
-                return HttpResponseRedirect('/user/loggedin/', context)
+                return HttpResponseRedirect('/user/register_sucsess/', context)
             else:
-                return HttpResponseRedirect('/user/register/', context)
+                return HttpResponseRedirect('/user/register/ivalid', context)
         else:
             return render_to_response('user_register.html', context)
     else:
         return HttpResponseRedirect('/user/login/', context)
 
-def refresh_db(request):
+def register_sucsess(request):
     context = RequestContext(request)
     if request.user.is_authenticated():
-        Tezaurs.objects.all().delete()
-        try:
-            with codecs.open('tezaurs-full-for-MongoDB.json', encoding='utf-8') as f:
-                # transfer json elements to python elements
-                try:
-                    document = json.load(f)
-                    nolas = 'ir nolasīts'
-                except Exception as inst:
-                    document = []
-                    nolas = 'nav nolasīts'
-        except Exception as inst:
-            document = []
-            nolas = 'nav nolasīts'
-
-        radit = []
-        for line in document:
-            try:
-                create_db_object.create_db_object(line)
-                radit.append('ir radīts')
-                break
-            except Exception as inst:
-                radit.append('nav radīts')
-                break
-
-        context_dict = {'nolas':nolas, 'radit':radit}
-
-        return render_to_response('saglab_db.html', context_dict, context)
+        context_dict = {'user_name': request.user.username, 'user_register': 'Jaunais lietotājs ir veiksmīgi reģistrēts!'}
+        return render_to_response('user_loggedin.html', context_dict, context)
     else:
         return HttpResponseRedirect('/user/login/', context)
-
-
-
-

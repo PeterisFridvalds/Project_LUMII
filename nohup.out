@@ -1,0 +1,636 @@
+[24/May/2015 04:54:58] "GET / HTTP/1.1" 200 2419
+[24/May/2015 14:07:19] "GET / HTTP/1.1" 200 2419
+[28/May/2015 04:24:07] "GET /user/create_db/ HTTP/1.1" 302 2171
+[28/May/2015 04:24:07] "GET /user/login/ HTTP/1.1" 200 2473
+[28/May/2015 04:24:08] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[28/May/2015 04:24:08] "GET /static/css/template.css HTTP/1.1" 200 1628
+[28/May/2015 04:24:08] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[28/May/2015 04:24:08] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[28/May/2015 04:24:08] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[28/May/2015 04:24:08] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[28/May/2015 04:24:08] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[28/May/2015 04:24:08] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[28/May/2015 04:24:13] "GET /admin HTTP/1.1" 301 0
+[28/May/2015 04:24:14] "GET /admin/ HTTP/1.1" 200 1882
+[28/May/2015 04:24:21] "POST /admin/ HTTP/1.1" 302 0
+[28/May/2015 04:24:21] "GET /admin/ HTTP/1.1" 200 3297
+[28/May/2015 04:24:23] "GET /admin/auth/user/ HTTP/1.1" 200 6051
+[28/May/2015 04:24:24] "GET /admin/jsi18n/ HTTP/1.1" 200 5169
+[28/May/2015 04:24:29] "GET /admin/auth/user/1/ HTTP/1.1" 200 13044
+[28/May/2015 04:24:29] "GET /admin/jsi18n/ HTTP/1.1" 200 5169
+[28/May/2015 09:28:53] "GET /admin/logout/ HTTP/1.1" 200 1135
+[29/May/2015 14:32:20] "GET / HTTP/1.1" 200 2419
+[29/May/2015 14:32:21] "GET /static/css/template.css HTTP/1.1" 304 0
+[30/May/2015 01:51:59] "GET / HTTP/1.1" 200 2419
+[30/May/2015 02:05:42] "GET / HTTP/1.1" 200 2419
+[30/May/2015 04:16:55] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[30/May/2015 04:17:02] "GET /tezaurs/airk%C4%81ji/0 HTTP/1.1" 200 5420
+[01/Jun/2015 23:31:36] "GET / HTTP/1.1" 200 2419
+[01/Jun/2015 23:31:36] "GET /static/css/template.css HTTP/1.1" 304 0
+[01/Jun/2015 23:31:36] "GET /static/javascript/template.js HTTP/1.1" 304 0
+[01/Jun/2015 23:31:43] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[01/Jun/2015 23:31:46] "GET /tezaurs/acs/0 HTTP/1.1" 200 21287
+[01/Jun/2015 23:33:24] "GET /inflect/ HTTP/1.1" 200 2336
+[01/Jun/2015 23:33:30] "POST /inflect/show/ HTTP/1.1" 302 0
+/home/peterisf/mysite/inflect/unknown_analizer.py:16: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal
+  if key == used_key:
+
+/home/peterisf/mysite/inflect/unknown_analizer.py:34: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal
+  if key == used_key:
+
+[01/Jun/2015 23:33:32] "GET /inflect/skriet HTTP/1.1" 200 18564
+[01/Jun/2015 23:35:00] "GET /inflect/ HTTP/1.1" 200 2336
+[01/Jun/2015 23:35:04] "POST /inflect/show/ HTTP/1.1" 302 0
+[01/Jun/2015 23:35:05] "GET /inflect/acs HTTP/1.1" 200 3437
+[01/Jun/2015 23:54:59] "POST /inflect/show/ HTTP/1.1" 302 0
+[01/Jun/2015 23:55:01] "GET /inflect/z%C4%81le HTTP/1.1" 200 3469
+[01/Jun/2015 23:55:02] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[01/Jun/2015 23:55:02] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[01/Jun/2015 23:55:02] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[01/Jun/2015 23:55:02] "GET /static/css/template.css HTTP/1.1" 200 1628
+[01/Jun/2015 23:55:02] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[01/Jun/2015 23:55:02] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[01/Jun/2015 23:55:02] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[01/Jun/2015 23:55:02] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+Validating models...
+
+0 errors found
+May 24, 2015 - 04:54:14
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+Validating models...
+
+0 errors found
+June 02, 2015 - 02:24:50
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 02:37:09] "GET /db/show_json/acs/0 HTTP/1.1" 200 3836
+[02/Jun/2015 02:37:22] "GET /user/logout/ HTTP/1.1" 302 2171
+[02/Jun/2015 02:37:22] "GET / HTTP/1.1" 200 2419
+[02/Jun/2015 02:37:27] "GET /db HTTP/1.1" 301 0
+[02/Jun/2015 02:37:27] "GET /db/ HTTP/1.1" 302 2171
+[02/Jun/2015 02:37:27] "GET /user/login/ HTTP/1.1" 200 2473
+[02/Jun/2015 02:37:35] "GET /db/show_json/acs/0 HTTP/1.1" 302 2171
+[02/Jun/2015 02:37:35] "GET /user/login/ HTTP/1.1" 200 2473
+[02/Jun/2015 02:37:42] "GET /db/update_db_object/acs/0 HTTP/1.1" 302 2171
+[02/Jun/2015 02:37:42] "GET /user/login/ HTTP/1.1" 200 2473
+[02/Jun/2015 02:37:53] "GET /user/register/ HTTP/1.1" 302 2171
+[02/Jun/2015 02:37:53] "GET /user/login/ HTTP/1.1" 200 2473
+[02/Jun/2015 02:37:58] "GET / HTTP/1.1" 200 2419
+[02/Jun/2015 02:38:01] "GET /inflect/ HTTP/1.1" 200 2336
+[02/Jun/2015 02:38:04] "POST /inflect/show/ HTTP/1.1" 302 0
+/home/peterisf/mysite/inflect/unknown_analizer.py:16: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal
+  if key == used_key:
+
+/home/peterisf/mysite/inflect/unknown_analizer.py:34: UnicodeWarning: Unicode equal comparison failed to convert both arguments to Unicode - interpreting them as being unequal
+  if key == used_key:
+
+[02/Jun/2015 02:38:06] "GET /inflect/skriet HTTP/1.1" 200 18565
+[02/Jun/2015 02:38:30] "GET / HTTP/1.1" 200 2419
+Validating models...
+
+0 errors found
+June 02, 2015 - 02:36:59
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 02:48:10] "GET /user/login/ HTTP/1.1" 200 2473
+[02/Jun/2015 02:48:16] "POST /user/login/post HTTP/1.1" 302 2171
+[02/Jun/2015 02:48:16] "GET /user/loggedin/ HTTP/1.1" 200 1594
+[02/Jun/2015 02:48:18] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 02:48:24] "POST /db/redirect_to/ HTTP/1.1" 302 0
+[02/Jun/2015 02:48:24] "GET /db/show_json/acs/0 HTTP/1.1" 200 3836
+Internal Server Error: /db/update_db_object/acs/0
+Traceback (most recent call last):
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 113, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/peterisf/mysite/tez_db/views.py", line 119, in update_db_object
+    data = analizer.analizer(json_data)
+  File "/home/peterisf/mysite/tez_db/analizer.py", line 6, in analizer
+    output = u'<div class="inside_box"><h3>' + input_data[u'Header'][u'Lemma'] + u'</h3><div class="inside_box"><div class="inside_box">'
+TypeError: 'NoneType' object has no attribute '__getitem__'
+[02/Jun/2015 02:48:32] "POST /db/update_db_object/acs/0 HTTP/1.1" 500 140463
+[02/Jun/2015 02:49:41] "GET /db/show_json/acs/1 HTTP/1.1" 200 3836
+Validating models...
+
+0 errors found
+June 02, 2015 - 02:48:09
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 02:50:08] "GET /db/show_json/acs/1 HTTP/1.1" 200 3836
+Internal Server Error: /db/update_db_object/acs/1
+Traceback (most recent call last):
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 113, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/peterisf/mysite/tez_db/views.py", line 119, in update_db_object
+    url = "/db/show_json/" + word + "/" + hom_ID
+NameError: global name 'hom_ID' is not defined
+[02/Jun/2015 02:50:13] "POST /db/update_db_object/acs/1 HTTP/1.1" 500 136943
+Validating models...
+
+0 errors found
+June 02, 2015 - 02:50:07
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+Internal Server Error: /db/show_json/acs/1
+Traceback (most recent call last):
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 113, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/peterisf/mysite/tez_db/views.py", line 100, in show_json
+    data = analizer.analizer(json_data)
+  File "/home/peterisf/mysite/tez_db/analizer.py", line 6, in analizer
+    output = u'<div class="inside_box"><h3>' + input_data[u'Header'][u'Lemma'] + u'</h3><div class="inside_box"><div class="inside_box">'
+TypeError: 'NoneType' object has no attribute '__getitem__'
+[02/Jun/2015 02:50:52] "GET /db/show_json/acs/1 HTTP/1.1" 500 67806
+[02/Jun/2015 02:50:55] "GET /db/show_json/acs/0 HTTP/1.1" 200 3836
+[02/Jun/2015 02:51:00] "POST /db/update_db_object/acs/0 HTTP/1.1" 302 0
+[02/Jun/2015 02:51:00] "GET /db/show_json/acs/1 HTTP/1.1" 200 3836
+[02/Jun/2015 02:51:05] "POST /db/update_db_object/acs/1 HTTP/1.1" 302 0
+[02/Jun/2015 02:51:05] "GET /db/show_json/acs/0 HTTP/1.1" 200 3836
+[02/Jun/2015 02:56:36] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 02:56:38] "GET /db/show_corrections/?csrfmiddlewaretoken=3M4MtDMbs3tRw7shmFSX5856No5OdXm8 HTTP/1.1" 200 1508
+Validating models...
+
+0 errors found
+June 02, 2015 - 02:50:49
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+Internal Server Error: /db/
+Traceback (most recent call last):
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 338, in resolve
+    for pattern in self.url_patterns:
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 366, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/core/urlresolvers.py", line 361, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/peterisf/mysite/mysite/urls.py", line 22, in <module>
+    url(r'^db/', include('tez_db.urls')),
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/conf/urls/__init__.py", line 25, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/peterisf/mysite/tez_db/urls.py", line 2, in <module>
+    from tez_db import views
+  File "/home/peterisf/mysite/tez_db/views.py", line 7, in <module>
+    from tez_db import db_object
+  File "/home/peterisf/mysite/tez_db/db_object.py", line 4
+SyntaxError: Non-ASCII character '\xc4' in file /home/peterisf/mysite/tez_db/db_object.py on line 4, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+[02/Jun/2015 03:05:34] "GET /db/ HTTP/1.1" 500 108720
+[02/Jun/2015 03:06:39] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:06:41] "GET /db/show_corrections/?csrfmiddlewaretoken=3M4MtDMbs3tRw7shmFSX5856No5OdXm8 HTTP/1.1" 200 2545
+[02/Jun/2015 03:07:52] "GET /db/show_corrections/?csrfmiddlewaretoken=3M4MtDMbs3tRw7shmFSX5856No5OdXm8 HTTP/1.1" 200 1553
+[02/Jun/2015 03:07:53] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+[02/Jun/2015 03:07:53] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[02/Jun/2015 03:07:53] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 304 0
+[02/Jun/2015 03:07:53] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 304 0
+[02/Jun/2015 03:07:53] "GET /static/css/template.css HTTP/1.1" 304 0
+[02/Jun/2015 03:07:53] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 304 0
+[02/Jun/2015 03:07:53] "GET /static/javascript/bootstrap.js HTTP/1.1" 304 0
+[02/Jun/2015 03:07:53] "GET /static/javascript/template.js HTTP/1.1" 304 0
+[02/Jun/2015 03:07:55] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:07:57] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:08:00] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:08:01] "GET /tezaurs/acs/0 HTTP/1.1" 200 22276
+[02/Jun/2015 03:08:08] "POST /db/add_correction/acs/0 HTTP/1.1" 200 1600
+[02/Jun/2015 03:08:10] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:08:11] "GET /db/show_corrections/?csrfmiddlewaretoken=3M4MtDMbs3tRw7shmFSX5856No5OdXm8 HTTP/1.1" 200 1655
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:02:24
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 03:09:24] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:09:26] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:09:34] "GET /tezaurs/acs/0 HTTP/1.1" 200 22128
+[02/Jun/2015 03:09:39] "POST /db/add_correction/acs/0 HTTP/1.1" 200 1600
+[02/Jun/2015 03:09:41] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:09:43] "GET /db/show_corrections/?csrfmiddlewaretoken=3M4MtDMbs3tRw7shmFSX5856No5OdXm8 HTTP/1.1" 200 1707
+[02/Jun/2015 03:10:53] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:10:56] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:11:02] "GET /tezaurs/acs/0 HTTP/1.1" 200 22128
+[02/Jun/2015 03:11:07] "POST /db/add_correction/acs/0 HTTP/1.1" 200 1600
+[02/Jun/2015 03:11:09] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:11:11] "GET /db/show_corrections/?csrfmiddlewaretoken=3M4MtDMbs3tRw7shmFSX5856No5OdXm8 HTTP/1.1" 200 1759
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:09:21
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 03:12:29] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:12:32] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:12:36] "GET /tezaurs/acs/0 HTTP/1.1" 200 22276
+[02/Jun/2015 03:12:43] "POST /db/add_correction/acs/0 HTTP/1.1" 200 1600
+[02/Jun/2015 03:12:45] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:12:46] "GET /db/show_corrections/?csrfmiddlewaretoken=3M4MtDMbs3tRw7shmFSX5856No5OdXm8 HTTP/1.1" 200 1553
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:12:25
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 03:13:31] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:13:31] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:13:31] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:13:31] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:13:31] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:13:31] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:13:31] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:13:31] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:13:31] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 03:13:39] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:13:39] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:13:39] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:13:39] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:13:39] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:13:39] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:13:40] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:13:40] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:13:40] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 03:13:46] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:13:48] "GET /tezaurs/acs/0 HTTP/1.1" 200 22276
+[02/Jun/2015 03:13:48] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:13:48] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:13:48] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:13:48] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:13:48] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:13:48] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:13:49] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:13:49] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 03:14:09] "POST /db/add_correction/acs/0 HTTP/1.1" 200 1600
+[02/Jun/2015 03:14:10] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:14:10] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:14:10] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:14:10] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:14:10] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:14:10] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:14:10] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:14:10] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 03:14:12] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:14:13] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:14:13] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:14:13] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:14:13] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:14:13] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:14:13] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:14:13] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:14:13] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 03:14:15] "GET /db/show_corrections/?csrfmiddlewaretoken=3M4MtDMbs3tRw7shmFSX5856No5OdXm8 HTTP/1.1" 200 1655
+[02/Jun/2015 03:14:15] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:14:15] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:14:15] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:14:15] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:14:16] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:14:16] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:14:16] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:14:16] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:13:12
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 03:14:34] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:14:35] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:14:35] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:14:35] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:14:35] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:14:35] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:14:35] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:14:35] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:14:35] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 03:14:38] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:14:39] "GET /tezaurs/acs/0 HTTP/1.1" 200 22276
+[02/Jun/2015 03:14:39] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:14:40] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:14:40] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:14:40] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:14:40] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:14:40] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:14:40] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:14:40] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 03:14:46] "POST /db/add_correction/acs/0 HTTP/1.1" 200 1600
+[02/Jun/2015 03:14:47] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:14:47] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:14:47] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:14:47] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:14:47] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:14:47] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:14:47] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:14:47] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 03:14:49] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:14:49] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:14:49] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:14:49] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:14:49] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:14:49] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:14:49] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:14:49] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:14:49] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 03:14:51] "GET /db/show_corrections/?csrfmiddlewaretoken=3M4MtDMbs3tRw7shmFSX5856No5OdXm8 HTTP/1.1" 200 1553
+[02/Jun/2015 03:14:52] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:14:52] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:14:52] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:14:52] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:14:52] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:14:52] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:14:52] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:14:52] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:14:32
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 03:15:09] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:15:09] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:15:09] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:15:09] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:15:09] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:15:09] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:15:09] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:15:09] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:15:09] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 03:15:33] "GET /user/register/ HTTP/1.1" 200 2885
+[02/Jun/2015 03:15:34] "GET /user/logout/ HTTP/1.1" 302 2171
+[02/Jun/2015 03:15:34] "GET / HTTP/1.1" 200 2419
+[02/Jun/2015 03:19:04] "GET /user/login/ HTTP/1.1" 200 2473
+[02/Jun/2015 03:19:09] "POST /user/login/post HTTP/1.1" 302 2171
+[02/Jun/2015 03:19:09] "GET /user/loggedin/ HTTP/1.1" 200 1594
+[02/Jun/2015 03:19:11] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:19:33] "GET /db/create_db/?csrfmiddlewaretoken=Jw14NnAh7xeA0tlC6tqTz4oWfQjOZDpj HTTP/1.1" 200 1486
+[02/Jun/2015 03:24:42] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:24:47] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:25:07] "GET /db/add_db_object/?csrfmiddlewaretoken=Jw14NnAh7xeA0tlC6tqTz4oWfQjOZDpj HTTP/1.1" 200 1575
+[02/Jun/2015 03:27:35] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:28:04] "GET /db/add_db_object/?csrfmiddlewaretoken=Jw14NnAh7xeA0tlC6tqTz4oWfQjOZDpj HTTP/1.1" 200 1575
+[02/Jun/2015 03:29:42] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:29:57] "GET /db/add_db_object/?csrfmiddlewaretoken=Jw14NnAh7xeA0tlC6tqTz4oWfQjOZDpj HTTP/1.1" 200 1575
+[02/Jun/2015 03:30:12] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:30:14] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:30:16] "GET /tezaurs/bulver%C4%B7is/0 HTTP/1.1" 200 6697
+[02/Jun/2015 03:32:04] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:32:16] "GET /db/add_db_object/?csrfmiddlewaretoken=Jw14NnAh7xeA0tlC6tqTz4oWfQjOZDpj HTTP/1.1" 200 1575
+[02/Jun/2015 03:32:54] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:33:00] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:33:02] "GET /tezaurs/grambulai%C5%86%C5%A1/0 HTTP/1.1" 200 6082
+[02/Jun/2015 03:33:21] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:33:23] "GET /tezaurs/grambulains/0 HTTP/1.1" 200 6057
+[02/Jun/2015 03:34:41] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:34:55] "GET /db/add_db_object/?csrfmiddlewaretoken=Jw14NnAh7xeA0tlC6tqTz4oWfQjOZDpj HTTP/1.1" 200 1575
+[02/Jun/2015 03:36:11] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:36:18] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:36:20] "GET /tezaurs/koksotomija/0 HTTP/1.1" 200 6087
+[02/Jun/2015 03:36:30] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:37:03] "GET /db/add_db_object/?csrfmiddlewaretoken=Jw14NnAh7xeA0tlC6tqTz4oWfQjOZDpj HTTP/1.1" 200 1575
+[02/Jun/2015 03:37:51] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:37:56] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:37:58] "GET /tezaurs/muc%C4%ABni/0 HTTP/1.1" 200 5431
+[02/Jun/2015 03:39:48] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:39:51] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:39:57] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:39:59] "GET /tezaurs/Podjuh%C5%86evi%C4%8Di/0 HTTP/1.1" 200 3058
+[02/Jun/2015 03:40:18] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:40:19] "GET /tezaurs/Podjuh%C5%86evi%C4%8Di/0 HTTP/1.1" 200 3058
+[02/Jun/2015 03:40:27] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:40:39] "GET /db/add_db_object/?csrfmiddlewaretoken=Jw14NnAh7xeA0tlC6tqTz4oWfQjOZDpj HTTP/1.1" 200 1575
+[02/Jun/2015 03:41:59] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:42:01] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 03:42:17] "GET /db/add_db_object/?csrfmiddlewaretoken=Jw14NnAh7xeA0tlC6tqTz4oWfQjOZDpj HTTP/1.1" 200 1575
+[02/Jun/2015 03:43:08] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 03:43:14] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:43:15] "GET /tezaurs/%C5%A1aks/0 HTTP/1.1" 200 6438
+[02/Jun/2015 03:43:25] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:43:26] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+[02/Jun/2015 03:43:41] "GET /tezaurs/z%C4%81le/1 HTTP/1.1" 200 23815
+[02/Jun/2015 03:43:44] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:43:45] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:15:06
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 03:46:18] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:46:19] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+[02/Jun/2015 03:46:34] "GET /tezaurs/z%C4%81le/1 HTTP/1.1" 200 23815
+[02/Jun/2015 03:47:14] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:47:14] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:46:02
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 03:52:39] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:52:40] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:52:36
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 03:54:01] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:54:01] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:53:58
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 03:54:49] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:54:46
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 03:56:31] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:56:32] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:56:28
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 03:57:52] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:57:49
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 03:58:32] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+[02/Jun/2015 03:58:36] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+[02/Jun/2015 03:58:40] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:58:41] "GET /tezaurs/acs/0 HTTP/1.1" 200 24003
+[02/Jun/2015 03:58:54] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:58:55] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+[02/Jun/2015 03:59:10] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 03:59:11] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+[02/Jun/2015 03:59:11] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 03:59:11] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 03:59:11] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 03:59:11] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 03:59:12] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 03:59:12] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 03:59:12] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 03:59:12] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 04:01:44] "GET /tezaurs/z%C4%81le/1 HTTP/1.1" 200 2781
+[02/Jun/2015 04:01:45] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 04:01:45] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 04:01:45] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 04:01:45] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 04:01:45] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 04:01:45] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 04:01:45] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 04:01:45] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 04:01:55] "GET /tezaurs/z%C4%81le/2 HTTP/1.1" 200 2781
+Validating models...
+
+0 errors found
+June 02, 2015 - 03:58:29
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 04:03:22] "GET /tezaurs/z%C4%81le/2 HTTP/1.1" 200 20908
+[02/Jun/2015 04:03:28] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+Validating models...
+
+0 errors found
+June 02, 2015 - 04:03:18
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+Unhandled exception in thread started by <bound method Command.inner_run of <django.contrib.staticfiles.management.commands.runserver.Command object at 0x20eef10>>
+Traceback (most recent call last):
+Internal Server Error: /tezaurs/zāle/0
+Traceback (most recent call last):
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/core/handlers/base.py", line 113, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/home/peterisf/mysite/tezaurs/views.py", line 69, in show_word
+    context_dict = search_word.return_centext_dict(json_data, input_word, word_ID, speach_id, word_list, document_init())
+  File "/home/peterisf/mysite/tezaurs/search_word.py", line 108, in return_centext_dict
+    return {'content':word, 'content_ID':homonim_id, 'data':input_data, 'word_list':word_list, 'output_data':analizer.analizer(i), 'automatic_output_data':get_from_page.inflect_word(word, speach_id)}
+UnboundLocalError: local variable 'i' referenced before assignment
+[02/Jun/2015 04:04:48] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 500 461583
+Validating models...
+
+0 errors found
+June 02, 2015 - 04:04:43
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 04:05:16] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 2781
+Validating models...
+
+0 errors found
+June 02, 2015 - 04:05:13
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+[02/Jun/2015 04:07:39] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 20603
+[02/Jun/2015 04:07:59] "GET /tezaurs/z%C4%81le/2 HTTP/1.1" 200 20908
+[02/Jun/2015 04:08:05] "GET /tezaurs/z%C4%81le/1 HTTP/1.1" 200 23815
+[02/Jun/2015 04:10:13] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 04:10:13] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 20603
+[02/Jun/2015 04:10:16] "GET /user/logout/ HTTP/1.1" 302 2171
+[02/Jun/2015 04:10:16] "GET / HTTP/1.1" 200 2419
+[02/Jun/2015 04:10:18] "GET / HTTP/1.1" 200 2419
+[02/Jun/2015 04:10:30] "GET /user/login/ HTTP/1.1" 200 2473
+[02/Jun/2015 04:10:35] "POST /user/login/post HTTP/1.1" 302 2171
+[02/Jun/2015 04:10:35] "GET /user/loggedin/ HTTP/1.1" 200 1594
+[02/Jun/2015 04:11:42] "GET / HTTP/1.1" 200 2419
+[02/Jun/2015 04:11:58] "GET / HTTP/1.1" 200 2419
+[02/Jun/2015 04:11:58] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 04:11:58] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 04:11:58] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 04:11:58] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 04:11:58] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 04:11:58] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 04:11:58] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 04:11:58] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 04:12:04] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 04:12:05] "GET /tezaurs/acs/0 HTTP/1.1" 200 23887
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/SocketServer.py", line 582, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 323, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/core/servers/basehttp.py", line 143, in __init__
+    super(WSGIRequestHandler, self).__init__(*args, **kwargs)
+  File "/usr/lib/python2.7/SocketServer.py", line 638, in __init__
+    self.handle()
+  File "/usr/lib/python2.7/wsgiref/simple_server.py", line 116, in handle
+    self.raw_requestline = self.rfile.readline()
+  File "/usr/lib/python2.7/socket.py", line 447, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 104] Connection reset by peer
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/SocketServer.py", line 582, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 323, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/home/peterisf/mongoenv/local/lib/python2.7/site-packages/django/core/servers/basehttp.py", line 143, in __init__
+    super(WSGIRequestHandler, self).__init__(*args, **kwargs)
+  File "/usr/lib/python2.7/SocketServer.py", line 638, in __init__
+    self.handle()
+  File "/usr/lib/python2.7/wsgiref/simple_server.py", line 116, in handle
+    self.raw_requestline = self.rfile.readline()
+  File "/usr/lib/python2.7/socket.py", line 447, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 104] Connection reset by peer
+[02/Jun/2015 04:12:33] "GET /user/logout/ HTTP/1.1" 302 2171
+[02/Jun/2015 04:12:33] "GET / HTTP/1.1" 200 2419
+[02/Jun/2015 06:29:20] "GET / HTTP/1.1" 200 2419
+[02/Jun/2015 06:29:20] "GET /static/css/bootstrap-responsive.min.css HTTP/1.1" 200 16840
+[02/Jun/2015 06:29:20] "GET /static/css/template.css HTTP/1.1" 200 1628
+[02/Jun/2015 06:29:20] "GET /static/css/bootstrap-responsive.css HTTP/1.1" 200 22102
+[02/Jun/2015 06:29:20] "GET /static/javascript/bootstrap.min.js HTTP/1.1" 200 28631
+[02/Jun/2015 06:29:20] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 106006
+[02/Jun/2015 06:29:20] "GET /static/css/bootstrap.css HTTP/1.1" 200 127343
+[02/Jun/2015 06:29:20] "GET /static/javascript/template.js HTTP/1.1" 200 2329
+[02/Jun/2015 06:29:20] "GET /static/javascript/bootstrap.js HTTP/1.1" 200 61884
+[02/Jun/2015 06:29:28] "GET /inflect/ HTTP/1.1" 200 2336
+[02/Jun/2015 06:29:30] "GET /user/login/ HTTP/1.1" 200 2473
+[02/Jun/2015 06:29:33] "GET / HTTP/1.1" 200 2419
+[02/Jun/2015 06:29:38] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 06:29:46] "GET /tezaurs/z%C4%81le/0 HTTP/1.1" 200 20487
+[02/Jun/2015 06:40:07] "GET /user/login/ HTTP/1.1" 200 2473
+[02/Jun/2015 06:40:19] "POST /user/login/post HTTP/1.1" 302 2171
+[02/Jun/2015 06:40:19] "GET /user/loggedin/ HTTP/1.1" 200 1594
+[02/Jun/2015 06:40:22] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 06:40:25] "GET /db/show_corrections/?csrfmiddlewaretoken=pzLyIiXZLSfam9C5Jw45St0xlz9ilOD0 HTTP/1.1" 200 1553
+[02/Jun/2015 06:40:32] "GET /db/ HTTP/1.1" 200 4154
+[02/Jun/2015 06:41:06] "POST /db/redirect_to/ HTTP/1.1" 302 0
+[02/Jun/2015 06:41:06] "GET /db/show_json/acs/0 HTTP/1.1" 200 3836
+[02/Jun/2015 06:41:26] "POST /db/update_db_object/acs/0 HTTP/1.1" 200 3905
+[02/Jun/2015 06:41:35] "POST /db/update_db_object/acs/0 HTTP/1.1" 200 3900
+[02/Jun/2015 06:59:24] "GET / HTTP/1.1" 200 2523
+[02/Jun/2015 06:59:27] "POST /tezaurs/show/ HTTP/1.1" 302 0
+[02/Jun/2015 06:59:31] "GET /tezaurs/acs/0 HTTP/1.1" 200 24003
+[02/Jun/2015 08:13:18] "GET /inflect/ HTTP/1.1" 200 2336
+[02/Jun/2015 08:13:22] "POST /inflect/show/ HTTP/1.1" 302 0
+[02/Jun/2015 08:13:24] "GET /inflect/%C4%BCaudis HTTP/1.1" 200 3490

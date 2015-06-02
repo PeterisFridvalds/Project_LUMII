@@ -1,0 +1,62 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}Tezaurs{% endblock %}
+
+{% block menu_bar %}
+	<ul class="nav nav-tabs">
+		<li><a href="/">Sākums</a></li>
+		<li><a href="/inflect/">Locījumi</a></li>
+		<li><a href="/db/"> Datu bāze rīki </a></li>
+		<li><a href="/user/register/">Reģistēt lietotāju</a></li>
+		<li><a href="/user/logout/"> Atslēgties </a></li>
+	</ul>
+{% endblock %}
+
+{% block body_block %}
+	
+	<h3 style="width:100%; text-align:center; padding-bottom:0px; margin-bottom:0px;">Datu bāzes rīki</h3><br><br>
+	
+	<form class="form-horizontal" action="/db/create_db/"> {% csrf_token %}
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<div style="padding-left:50px;">
+					<p>//Datu bāzes datiem ir jābūt failā ar nodaukumu "tezaurs-full-for-MongoDB.json"</p>
+					<button type="submit" style="width:150px; text-align:center;" class="btn btn-default"> Izveidot datu bāzi </button>
+				</div>
+			</div>
+		</div>
+	</form>
+	<form class="form-horizontal" action="/db/add_db_object/"> {% csrf_token %}
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<div style="padding-left:50px;">
+					<p>//Datu bāzes datiem ir jābūt failā ar nodaukumu "tezaurs-for-MongoDB-add.json"</p>
+					<button type="submit" style="width:150px; text-align:center;" class="btn btn-default">Papildināt datu bāzi</button>
+				</div>
+			</div>
+		</div>
+	</form>
+	<form style="padding-left:50px;" class="form-horizontal" method="post" action="/tezaurs/show/"> {% csrf_token %}
+		<input id="word_ID" type="hidden" name="word_ID" value="0">
+		<div class="form-group">
+			<div class="col-sm-10">
+				<input type="text" style="text-align:center;" class="form-control" id="input_word" name="input_word" placeholder="Meklējamais vārds" required="required" value="{{ content }}">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-10">
+				<input type="text" style="text-align:center;" class="form-control" id="word_ID" name="word_ID" placeholder='Vārda ID (var būt "0")'  required="required">
+				<input type="text" style="text-align:center;" class="form-control" id="input_word" name="input_word" placeholder="Meklējamais vārds" required="required" value="{{ content }}">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<div style="width:100px; padding-left:15px;">
+					<button type="submit" style="text-align:center;" class="btn btn-default">Meklēt</button>
+				</div>
+			</div>
+		</div>
+	</form>
+	
+	
+{% endblock %}
