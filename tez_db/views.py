@@ -119,7 +119,8 @@ def update_db_object(request, word, word_ID):
         keys = data['keys']
         cor = {}
         for key in keys:
-            cor[key] = request.POST[key]
+            if request.POST.has_key(key):
+                cor[key] = request.POST[key]
         corrections = correct.correct(old_json, cor)
         radit = db_object.update_db_object(corrections, word, word_ID)
         json_data = db_object.find_word_in_db(word, word_ID)

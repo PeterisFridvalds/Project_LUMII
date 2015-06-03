@@ -634,3 +634,21 @@ error: [Errno 104] Connection reset by peer
 [02/Jun/2015 08:13:18] "GET /inflect/ HTTP/1.1" 200 2336
 [02/Jun/2015 08:13:22] "POST /inflect/show/ HTTP/1.1" 302 0
 [02/Jun/2015 08:13:24] "GET /inflect/%C4%BCaudis HTTP/1.1" 200 3490
+[03/Jun/2015 03:29:23] "GET /inflect/%C4%BCaudis HTTP/1.1" 200 3490
+Validating models...
+
+0 errors found
+June 02, 2015 - 04:07:36
+Django version 1.5.11, using settings 'mysite.settings'
+Development server is running at http://0.0.0.0:5678/
+Quit the server with CONTROL-C.
+----------------------------------------
+Exception happened during processing of request from ('213.175.109.169', 63640)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('213.175.109.169', 63707)
+----------------------------------------
+[03/Jun/2015 04:41:58] "GET /db/show_json/acs/0 HTTP/1.1" 302 2171
+[03/Jun/2015 04:41:58] "GET /user/login/ HTTP/1.1" 200 2660
+[03/Jun/2015 04:41:59] "GET /static/css/template.css HTTP/1.1" 304 0
+[03/Jun/2015 04:42:02] "GET / HTTP/1.1" 200 2606
